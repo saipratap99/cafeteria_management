@@ -1,4 +1,7 @@
 class MenusController < ApplicationController
+  # created by cmd
+  # rails generate controller Menus
+
   skip_before_action :verify_authenticity_token
 
   def index

@@ -1,4 +1,6 @@
 class MenuItemsController < ApplicationController
+  # created by cmd
+  # rails generate controller MenuItems
   skip_before_action :verify_authenticity_token
 
   def index
