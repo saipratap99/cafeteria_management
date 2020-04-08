@@ -1,0 +1,19 @@
+    <div class="cafeteria-menuItems">
+      <% @menus.each do |menu|%>
+      <ul class="menuItems-list">
+        <h3 class="menuName" id=<%=menu.name%>><%=menu.name%></h3>
+        <%menu.menu_items.each do |menu_item|%>
+        <li class="menuItem">
+          <p>
+            <%=menu_item.name%>
+            <span class="menuItem-price">₹<%=menu_item.price%><span><a href=""><img src="edit.png"></a></span></span>
+          </p>
+          <p class="orderItem-add">
+             <a class="init-add" href="">Add +</a>
+            <!--<a href="">-</a> 4 <a href="">+</a>-->
+          </p>
+        </li>
+        <%end%>
+      </ul>
+      <%end%>
+    </div>

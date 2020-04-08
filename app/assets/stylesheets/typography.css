@@ -1,0 +1,23 @@
+* {
+  font-family: sans-serif;
+}
+h1{
+  font-size: 48.83px;
+}
+h2{
+  font-size: 39.06px;
+}
+h3{
+  font-size: 31.25px;
+  font-family: sans-serif;
+}
+h4{
+  font-size: 25px;
+  font-family: sans-serif;
+}
+p,li,span,a{
+  font-size: 21px;
+}
+a{
+  text-decoration: none;
+}

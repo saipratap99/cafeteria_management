@@ -1,0 +1,57 @@
+.food-icons > img{
+  padding: 8px;
+  margin: 5px;
+}
+
+
+.search-box{
+  max-width: 100%;
+  margin: 0px auto;
+  padding: 8px;
+  background-color: #c0e7f3;
+  text-align: center;
+}
+.search-box > form{
+  margin: 10px auto;
+}
+.search-box > form input{
+  font-size: 23px;
+  margin: 5px;
+  padding: 5px;
+  border: 0px;
+  text-align: center;
+}
+.search-box > form input[type="submit"],input[type="button"]{
+  background-color: rgba(159, 49, 250, 0.932);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding:5px 10px ;
+  color: white;
+}
+.search-box > form input[type="search"]{
+  background-color: white;
+  border-radius: 5px;
+}
+
+
+.addItem-form{
+  width: 100%;
+  margin: 0px auto;
+  display: none;
+  background-color: #c0e7f3;
+}
+.addItem-form > form{
+  margin: 0px auto;
+  padding: 10px;
+}
+.addItem-form > form input{
+  background-color: white;
+  border-radius: 5px;
+  border: 0px;
+  font-size: 21px;
+  padding: 5px;
+}
+.addItem-form > form input[type="submit"]{
+  background-color: rgba(159, 49, 250, 0.932);
+  color: white;
+}

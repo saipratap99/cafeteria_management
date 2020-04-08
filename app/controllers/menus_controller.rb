@@ -5,7 +5,7 @@ class MenusController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    render plain: Menu.all.to_a.map { |menu| menu.name }.join("\n")
+    @menus = Menu.all
   end
 
   def show

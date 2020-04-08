@@ -1,0 +1,47 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+body{
+  font-family: sans-serif;
+}
+
+.cafeteria-navbar{
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.cafeteria-navbarHeading{
+  margin: 5px;
+  padding: 5px;
+  color: rgba(34, 33, 33, 0.877);
+  font-weight: bold;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+}
+.cafeteria-navbarHeading img{
+  padding: 5px;
+}
+.cafeteria-navbarAllButtons{
+  display: flex;
+  align-items: center;
+  margin-left:auto ;
+}
+.cafeteria-navbarButton{
+  list-style: none;
+  margin: 5px;
+  padding: 5px;
+}
+.cafeteria-navbarButton > a{
+  text-decoration: none;
+  color: rgba(24, 23, 23, 0.842);
+  font-family: sans-serif;
+  margin-right: 5px;
+  text-align: center;
+  padding: 5px;
+}
+.cafeteria-navbarButton > a:hover{
+  color: rgba(255, 68, 0, 0.904);
+}
