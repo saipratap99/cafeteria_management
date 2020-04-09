@@ -5,7 +5,8 @@ class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    render plain: Order.all.map { |order| order.to_a_string }.join("\n")
+    #render plain: Order.all.map { |order| order.to_a_string }.join("\n")
+    @orders = Order.all
   end
 
   def show

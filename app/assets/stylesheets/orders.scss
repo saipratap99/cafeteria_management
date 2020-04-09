@@ -1,3 +1,54 @@
 // Place all the styles related to the Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.orders {
+  max-width: 70%;
+  margin: 5px auto;
+}
+.orders-heading{
+  text-align: center;
+}
+.each-order{
+  max-width: 60%;
+  margin: 5px auto;
+  border: 1px dotted grey;
+  padding: 20px;
+  font-family: sans-serif;
+  border-radius: 5px;
+}
+.each-order > p{
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  font-family: sans-serif;
+}
+.total-price{
+  margin-left: auto;
+  padding: 5px;
+  font-family: sans-serif;
+}
+.each-order-status{
+  margin-left: auto;
+  padding: 5px;
+  font-family: sans-serif;
+}
+
+.order-details{
+  border-top: 1px dotted grey;
+  padding: 10px;
+
+}
+.order-details ul{
+  margin: 0 auto;
+  width: 70%;
+}
+.order-item{
+  display: flex;
+  align-items: center;
+}
+.order-item > span{
+  font-size: 15px;
+  color: rgb(83, 81, 81);
+}
