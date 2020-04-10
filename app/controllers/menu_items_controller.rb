@@ -12,7 +12,11 @@ class MenuItemsController < ApplicationController
   end
 
   def create
-    menu_item = MenuItem.create!(name: params[:name].capitalize, description: params[:description].capitalize, menu_id: Menu.where(name: params[:menu_name].capitalize).first.id, price: params[:price])
-    render plain: "created #{menu_item.name} with #{menu_item.id}"
+    if Menu.where(name: params[:menu_name].capitalize).exists?
+      menu_item = MenuItem.create!(name: params[:name].capitalize, description: params[:description].capitalize, menu_id: Menu.where(name: params[:menu_name].capitalize).first.id, price: params[:price])
+    else
+      menu_item = MenuItem.create!(name: params[:name].capitalize, description: params[:description].capitalize, menu_id: Menu.create!(name: params[:menu_name].capitalize).id, price: params[:price])
+    end
+    redirect_to "/"
   end
 end
