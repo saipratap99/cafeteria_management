@@ -17,4 +17,7 @@ class OrdersController < ApplicationController
     order = Order.create!(date: Time.now, user_id: params[:user_id])
     render plain: "Order i created with id #{order.to_a_string}"
   end
+
+  def created
+  end
 end

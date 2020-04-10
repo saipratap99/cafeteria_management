@@ -33,6 +33,7 @@
   margin-left: auto;
   padding: 5px;
   font-family: sans-serif;
+  font-size: 15px;
 }
 
 .order-details{
@@ -51,4 +52,9 @@
 .order-item > span{
   font-size: 15px;
   color: rgb(83, 81, 81);
+}
+
+.ordered_at{
+  font-size: 15px;
+  color:  rgb(83, 81, 81);
 }

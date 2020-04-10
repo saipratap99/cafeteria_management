@@ -1,7 +1,8 @@
 <%@orders.each do |order|%>
 <div class="each-order">
 <p><span>Order Id:<%=order.id%></span><span class="total-price">Rs.<%=order.total_price%></span></p>
-<p><a href="" onclick="viewDetails()">View Details</a><span class="each-order-status">Order status:<%=order.delivered_at%></span></p>
+<p class="ordered_at"><%=order.ordered_at%>
+<p><a href="" onclick="viewDetails()">View Details</a><span class="each-order-status"><%=order.order_status%></span></p>
 <section class="order-details" id="order-details">
 <ul>
 <% order.order_items.each do |menu_item|%>
