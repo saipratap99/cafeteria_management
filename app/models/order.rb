@@ -22,4 +22,8 @@ class Order < ApplicationRecord
     order_items.each { |item| price = price + item.menu_item_price }
     price
   end
+
+  def get_order_item_id(menu_item_id)
+    order_items.where(menu_item_id: menu_item_id).first.id
+  end
 end

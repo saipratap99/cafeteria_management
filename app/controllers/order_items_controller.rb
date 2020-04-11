@@ -13,8 +13,14 @@ class OrderItemsController < ApplicationController
 
   def create
     menu_item = MenuItem.find(params[:menu_item_id])
-    order = Order.where("status = ? and user_id=?", "being_created", 1).exists? ? Order.where("status = ? and user_id=?", "being_created", 1).first : Order.create!(user_id: 1)
+    order = Order.where("status = ? and user_id=?", "being_created", params[:user_id]).exists? ? Order.where("status = ? and user_id=?", "being_created", params[:user_id]).first : Order.create!(user_id: 1)
     order_item = OrderItem.create!(order_id: order.id, menu_item_id: menu_item.id, menu_item_name: menu_item.name, menu_item_price: menu_item.price)
-    redirect_to "/"
+    redirect_to root_path
+  end
+
+  def destroy
+    order_item_id = params[:id]
+    OrderItem.find(order_item_id).destroy
+    redirect_to root_path
   end
 end
