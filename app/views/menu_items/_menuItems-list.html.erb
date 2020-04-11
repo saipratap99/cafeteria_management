@@ -9,8 +9,12 @@
             <span class="menuItem-price">₹<%=menu_item.price%><span><a href=""><img src="edit.png"></a></span></span>
           </p>
           <p class="orderItem-add">
-            <% if @order.order_items.where("menu_item_id = ?",menu_item.id).exists?%>
-              <a href="">-</a> <%=@order.order_items.where("menu_item_id = ?",menu_item.id).count%> <a href="">+</a>
+            <% if @order%>
+                <%if @order.order_items.where("menu_item_id = ?",menu_item.id).exists?%>
+                  <a href="">-</a> <%=@order.order_items.where("menu_item_id = ?",menu_item.id).count%> <a href="">+</a>
+                <% else %>
+                  <%=link_to "Add +", order_items_path(menu_item_id: menu_item.id ), {:method => :post} %>
+                <%end%>
             <% else %>
               <%=link_to "Add +", order_items_path(menu_item_id: menu_item.id ), {:method => :post} %>
             <% end %>
