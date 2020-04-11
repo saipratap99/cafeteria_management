@@ -13,12 +13,8 @@ class OrderItemsController < ApplicationController
 
   def create
     menu_item = MenuItem.find(params[:menu_item_id])
-    if Order.where(delivered_at: [nil, ""]).where("user_id=?", 2).exists?
-      order = Order.where(delivered_at: [nil, ""]).where("user_id=?", 2).first
-    else
-      order = Order.create!(date: Time.now, user_id: 2)
-    end
+    order = Order.where("status = ? and user_id=?", "being_created", 1).exists? ? Order.where("status = ? and user_id=?", "being_created", 1).first : Order.create!(user_id: 1)
     order_item = OrderItem.create!(order_id: order.id, menu_item_id: menu_item.id, menu_item_name: menu_item.name, menu_item_price: menu_item.price)
-    render plain: "Order item is created details: #{order_item.to_a_string}"
+    redirect_to "/"
   end
 end

@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
 
   def index
     #render plain: Order.all.map { |order| order.to_a_string }.join("\n")
-    @orders = Order.all
+    @orders = Order.order(:id)
   end
 
   def show
