@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :menus, :menu_items, :orders, :order_items
   get "/cart", to: "orders#cart"
+  get "/pending_orders", to: "orders#pending_orders"
 end

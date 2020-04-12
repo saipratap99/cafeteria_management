@@ -1,4 +1,4 @@
-<%@orders.each do |order|%>
+<%orders.each do |order|%>
   <div class="each-order">
     <p>
       <span>Order Id:<%=order.id%></span>
@@ -8,7 +8,11 @@
       <%=order.ordered_at%>
     </p>
     <p>
-      <a href="" onclick="viewDetails()">View Details</a>
+      <%if mark_as_delivered%>
+        <%=link_to "Mark as Delivered",order_path(order.id),method: "patch"%>
+      <% else %>
+        <%=link_to "View Details",order_path(order.id)%>
+      <%end%>
       <span class="each-order-status">
         <%=order.order_status%>
       </span>

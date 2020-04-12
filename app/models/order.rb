@@ -7,11 +7,19 @@ class Order < ApplicationRecord
     "#{id} #{date} ITEMS:#{order_items.map { |item| item.menu_item_name }.join("--")} TOTAL PRICE:#{total_price} STATUS:++#{status} #{delivered_at}"
   end
 
+  def self.user_orders
+    where("status= ? and user_id = ?", "order_delivered", 1)
+  end
+
+  def self.pending_orders
+    where("status= ?", "order_confirmed")
+  end
+
   def order_status
     if status == "being_created"
       "Being created"
     elsif status == "order_confirmed"
-      "Order Recived"
+      "Order Confirmed"
     else
       "Delivered at #{delivered_at.strftime("%d %B,%Y - %I:%M %p")}"
     end

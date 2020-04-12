@@ -8,6 +8,6 @@
   </section>
 </div>
 <div class="orders">
-  <h3 class="orders-heading">Your Orders</h3>
-  <%=render partial:"ordersList",locals: {orders: Order.user_orders,mark_as_delivered: false}%>
+  <h3 class="orders-heading">Pending Orders</h3>
+  <%=render partial:"ordersList",locals: { orders: Order.pending_orders,mark_as_delivered: true} %>
 </div>
