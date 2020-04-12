@@ -1,0 +1,38 @@
+<div class="search-box">
+  <h3>Order everything Online</h3>
+  <section class="food-icons">
+    <img src="fast-food.png">
+    <img src="tea-cup.png">
+    <img src="pizza-slice1.png">
+    <img src="fried-potatoes.png">
+  </section>
+</div>
+<div class="cart">
+  <h3 class="cart-heading">Cart</h3>
+  <%if @order %>
+  <div class="cart-item-price">
+    <p class="cart-item-heading" >
+      <span>Item Name</span >
+      <span class="total-price">Price</span>
+    </p>
+    <ul>
+      <%@order.order_items.each do |item|%>
+        <li class="cart-item" >
+          <span><%=item.menu_item_name%></span >
+          <span class="total-price">Rs.<%=item.menu_item_price%></span>
+        </li>
+      <%end%>
+    </ul>
+    <p class="cart-total-price" >
+      <span>Total Price</span >
+      <span class="total-price"><%=@order.total_price%></span>
+    </p>
+  <%=form_with(model: @order,url: orders_path,method: "post",local: true) do |form|%>
+    <%=form.submit "Checkout",class:"cart-checkout"%>
+  <%end%>
+  <%else%>
+  <h2 class="empty-cart">Uh oh! Your cart is empty</h2>
+  <%end%>
+
+  </div>
+</div>

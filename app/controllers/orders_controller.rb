@@ -14,7 +14,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.create!(date: Time.now, user_id: params[:user_id])
-    render plain: "Order i created with id #{@order.to_a_string}"
+    @order = Order.where("status = ? and user_id = ?", "being_created", 1).first
+    @order.status = "order_recived"
+    @order.save
+    redirect_to root_path
+  end
+
+  def cart
+    @order = Order.where("status = ? and user_id = ?", "being_created", 1).first
   end
 end

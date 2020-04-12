@@ -7,4 +7,8 @@ class OrderItem < ApplicationRecord
   def to_a_string
     "#{id} #{order_id} #{menu_item_id} #{menu_item_name} #{menu_item_price}"
   end
+
+  def self.get_order_item(menu_item_id)
+    where("menu_item_id = ?", menu_item_id)
+  end
 end

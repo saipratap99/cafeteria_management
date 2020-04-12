@@ -19,4 +19,10 @@ class MenuItemsController < ApplicationController
     end
     redirect_to "/"
   end
+
+  private
+
+  def permit_params
+    params.require(:menu_item).pemit(:name, :description, :menu_name, :price)
+  end
 end
