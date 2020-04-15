@@ -1,0 +1,22 @@
+<main class="main-welcomeBody">
+  <main class="loginBox">
+    <%= form_with url: session_path, class: "login-form" do |f| %>
+      <p class="login-signUp">
+        New to Cafeteria
+        <%=link_to "Sign Up here", new_user_path, class: "signUp-link" %>
+      </p>
+      <%= f.email_field :email,
+                         placeholder: "Email",
+                         autofocus:"autofocus"
+      %>
+      <br>
+      <%= f.password_field :password,
+                            placeholder: "Password",
+                            autofocus:"autofocus"
+      %>
+      <br>
+      <%= f.submit "Log in" , class: "login-button" %>
+      <a href="" class="forgot-password"> Forgot your password?</a>
+    <% end %>
+  </main>
+</main>
