@@ -1,12 +1,3 @@
-<div class="search-box">
-  <h3>Order everything Online</h3>
-  <section class="food-icons">
-    <img src="fast-food.png">
-    <img src="tea-cup.png">
-    <img src="pizza-slice1.png">
-    <img src="fried-potatoes.png">
-  </section>
-</div>
 <div class="orders">
   <h3 class="orders-heading">Your Orders</h3>
   <%=render partial:"ordersList",locals: {orders: Order.user_orders,mark_as_delivered: false}%>

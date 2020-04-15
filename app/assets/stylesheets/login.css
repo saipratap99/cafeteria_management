@@ -1,0 +1,126 @@
+body{
+  font-family: sans-serif;
+}
+.main-welcomeBody{
+  display: flex;
+  font-family:  sans-serif;
+}
+.Header{
+  max-width: 98%;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  font-size: 50px;
+  font-family: sans-serif;
+  font-weight: bold;
+  background-color: rgb(94, 67, 136);
+  border: 2px solid rgb(1, 1, 83);
+  color: white;
+  border-radius: 13px;
+  border: 2px solid transparent;
+  box-shadow: 2px 2px 5px rgb(145, 142, 142);
+  display: flex;
+  justify-content: space-between;
+  }
+  .Header span{
+    padding: 10px;
+    margin: auto 0;
+    font-size: 15px;
+  }
+.Header span a{
+  padding:5px;
+  text-decoration: none;
+  color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+
+}
+.Header span a:hover{
+  background-color: white;
+  color:rgb(94, 67, 136) ;
+}
+
+.loginBox{
+  max-width: 500px;
+  margin: 20px auto;
+  border: 3px solid transparent;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px gray;
+}
+
+.login-signUp{
+  margin: 25px 0;
+  text-align: center;
+  font-size: 20px;
+
+}
+.signUp-link{
+  text-decoration: none;
+  color: rgb(199, 26, 26);
+}
+
+.login-form input[type="text"] ,input[type="password"],input[type="email"] {
+  display: block;
+  margin : 5px auto;
+  width: 400px;
+  font-size: 25px;
+  padding: 5px;
+  text-align: center;
+  border: 2px solid rgb(65, 113, 216);
+  border-radius: 10px;
+}
+
+.login-form input[type=checkbox]{
+
+  display: block;
+  margin-left: 50px;
+}
+
+.login-showPassword{
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.forgot-password{
+  font-size: 20px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  color: rgb(235, 146, 13);
+  max-width: 250px;
+  margin: 10px auto;
+}
+.login-button:hover{
+  background-color: rgba(37, 168, 37, 0.863) ;
+}
+
+.login-button{
+  text-decoration: none;
+  display: block;
+  margin: 10px auto;
+  margin: 10px auto;
+  width: 400px;
+  text-align: center;
+  background-color: rgb(37, 168, 37);
+  color: white;
+  font-weight: bold;
+  border: 5px solid transparent;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 5px;
+}
+.Footer{
+  max-width: 98%;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  font-size: 25px;
+  font-family: sans-serif;
+  font-weight: bold;
+  background-color: rgb(94, 67, 136);
+  color: white;
+  border-radius: 13px;
+  border: 2px solid transparent;
+  box-shadow: 2px 2px 5px rgb(145, 142, 142);
+  }

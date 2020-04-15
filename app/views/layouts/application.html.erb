@@ -10,7 +10,7 @@
   <body>
     <div>
       <nav class="cafeteria-navbar">
-        <h2 class="cafeteria-navbarHeading"><img src="cooking (1).png">Cafeteria Management</h2>
+        <h2 class="cafeteria-navbarHeading"><%= image_tag "cooking (1).png" %>Cafeteria Management</h2>
         <ul class="cafeteria-navbarAllButtons">
           <li class="cafeteria-navbarButton"><%=link_to "Home",root_path%></li>
           <li class="cafeteria-navbarButton"><%=link_to "Pending Orders",pending_orders_path%></li>
@@ -19,6 +19,15 @@
           <li class="cafeteria-navbarButton"><a href="#">LogOut</a></li>
         </ul>
       </nav>
+      <div class="search-box">
+        <h3>Order everything Online</h3>
+        <section class="food-icons">
+          <%= image_tag "fast-food.png" %>
+          <%= image_tag "tea-cup.png" %>
+          <%= image_tag "pizza-slice1.png" %>
+          <%= image_tag "fried-potatoes.png" %>
+        </section>
+      </div>
     </div>
     <%= yield %>
   </body>
