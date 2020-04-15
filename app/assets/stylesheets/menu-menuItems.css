@@ -20,9 +20,12 @@
   margin: 5px;
   padding: 5px;
   text-align: right;
+  display: flex;
+  align-items: center;
 }
 .menu > a{
   color: #0509c4;
+  margin-left: auto;
 }
 .menuItem {
   height: 65px;
@@ -67,3 +70,21 @@
   width: 20px;
   padding: 5px;
  }
+
+ .menuItem-delete{
+   display: none;
+   margin-left: 10px;
+ }
+.menu:hover > .menuItem-delete{
+  display: inline-block;
+}
+.each-menuItem-delete{
+  display: none;
+  margin-left: auto;
+}
+.each-menuItem-delete > a img{
+  margin-left: auto;
+}
+.menuItem:hover > .each-menuItem-delete{
+  display: inline-block;
+}

@@ -1,9 +1,14 @@
 <div class="cafeteria-menu">
-     <ul>
-        <% @menus.each do |menu| %>
-        <li class="menu">
-          <a href=<%="##{menu.name}"%>><%=menu.name%></a>
-        </li>
-        <%end %>
-     </ul>
+  <ul>
+    <% @menus.each do |menu| %>
+      <li class="menu">
+        <span class="menuItem-delete">
+          <%= link_to menu, method: :delete, data: {confirm: 'Are you sure?'} do %>
+            <%= image_tag "trash.png" %>
+          <% end %>
+        </span>
+        <a href=<%= "##{menu.name}" %>><%= menu.name %></a>
+      </li>
+    <%end %>
+  </ul>
 </div>

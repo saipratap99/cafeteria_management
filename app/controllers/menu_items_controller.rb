@@ -20,6 +20,11 @@ class MenuItemsController < ApplicationController
     redirect_to "/"
   end
 
+  def destroy
+    MenuItem.find(params[:id]).destroy
+    redirect_to root_path
+  end
+
   private
 
   def permit_params

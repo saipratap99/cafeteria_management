@@ -4,22 +4,22 @@
     <title>CafteriaManagement</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-   <div>
-    <nav class="cafeteria-navbar">
-      <h2 class="cafeteria-navbarHeading"><img src="cooking (1).png">Cafeteria Management</h2>
-      <ul class="cafeteria-navbarAllButtons">
-        <li class="cafeteria-navbarButton"><a href="#">Profile</a></li>
-        <li class="cafeteria-navbarButton"><a href="#">LogOut</a></li>
-        <li class="cafeteria-navbarButton"><a href="#">Cart</a></li>
-      </ul>
-    </nav>
-  </div>
+    <div>
+      <nav class="cafeteria-navbar">
+        <h2 class="cafeteria-navbarHeading"><img src="cooking (1).png">Cafeteria Management</h2>
+        <ul class="cafeteria-navbarAllButtons">
+          <li class="cafeteria-navbarButton"><%=link_to "Home",root_path%></li>
+          <li class="cafeteria-navbarButton"><%=link_to "Pending Orders",pending_orders_path%></li>
+          <li class="cafeteria-navbarButton"><%=link_to "Orders",orders_path%></li>
+          <li class="cafeteria-navbarButton"><%=link_to "Cart",cart_path%></li>
+          <li class="cafeteria-navbarButton"><a href="#">LogOut</a></li>
+        </ul>
+      </nav>
+    </div>
     <%= yield %>
   </body>
 </html>

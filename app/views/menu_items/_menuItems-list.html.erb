@@ -8,15 +8,20 @@
             <%=menu_item.name%>
             <span class="menuItem-price">₹<%=menu_item.price%><span><a href=""><img src="edit.png"></a></span></span>
           </p>
+          <p class="each-menuItem-delete">
+            <%= link_to menu_item, method: :delete, data: {confirm: 'Are you sure?'} do %>
+              <%= image_tag "trash.png" %>
+            <% end %>
+          </p>
           <p class="orderItem-add">
             <% if @order%>
-                <%if @order.order_items.get_order_item(menu_item.id).exists?%>
-                  <%=link_to "-", "order_items/#{@order.get_order_item_id(menu_item.id)}", {:method => :delete} %>
-                  <%=@order.order_items.get_order_item(menu_item.id).count%>
-                  <%=link_to "+", order_items_path(menu_item_id: menu_item.id,user_id:1 ), {:method => :post} %>
-                <% else %>
-                  <%=link_to "Add +", order_items_path(menu_item_id: menu_item.id,user_id:1 ), {:method => :post} %>
-                <%end%>
+              <%if @order.order_items.get_order_item(menu_item.id).exists?%>
+                <%=link_to "-", "order_items/#{@order.get_order_item_id(menu_item.id)}", {:method => :delete} %>
+                <%=@order.order_items.get_order_item(menu_item.id).count%>
+                <%=link_to "+", order_items_path(menu_item_id: menu_item.id,user_id:1 ), {:method => :post} %>
+              <% else %>
+                <%=link_to "Add +", order_items_path(menu_item_id: menu_item.id,user_id:1 ), {:method => :post} %>
+              <%end%>
             <% else %>
               <%=link_to "Add +", order_items_path(menu_item_id: menu_item.id,user_id:1 ), {:method => :post} %>
             <% end %>
