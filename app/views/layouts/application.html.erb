@@ -12,11 +12,16 @@
       <nav class="cafeteria-navbar">
         <h2 class="cafeteria-navbarHeading"><%= image_tag "cooking (1).png" %>Cafeteria Management</h2>
         <ul class="cafeteria-navbarAllButtons">
-          <li class="cafeteria-navbarButton"><%= link_to "Home", root_path %></li>
-          <li class="cafeteria-navbarButton"><%= link_to "Pending Orders", pending_orders_path%></li>
-          <li class="cafeteria-navbarButton"><%= link_to "Orders", orders_path %></li>
-          <li class="cafeteria-navbarButton"><%= link_to "Cart", cart_path %></li>
-          <li class="cafeteria-navbarButton"><%= link_to "LogOut", destroy_session_path, method: :delete %></li>
+          <% if @current_user %>
+            <li class="cafeteria-navbarButton"><%= link_to "Home", menus_path %></li>
+            <li class="cafeteria-navbarButton"><%= link_to "Pending Orders", pending_orders_path%></li>
+            <li class="cafeteria-navbarButton"><%= link_to "Orders", orders_path %></li>
+            <li class="cafeteria-navbarButton"><%= link_to "Cart", cart_path %></li>
+            <li class="cafeteria-navbarButton"><%= link_to "LogOut", destroy_session_path, method: :delete %></li>
+          <% else %>
+            <li class="cafeteria-navbarButton"><%= link_to "Sign In", new_session_path %></li>
+            <li class="cafeteria-navbarButton"><%= link_to "Sign Up", new_user_path %></li>
+          <% end %>
         </ul>
       </nav>
       <div class="search-box">
@@ -29,6 +34,24 @@
         </section>
       </div>
     </div>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <%end%>
+    <% if flash.alert %>
+      <p class="alert"><%= alert %></p>
+    <%end%>
+    <% if flash[:error] %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(flash[:error].count, "error") %> prohibited this todo from being saved:
+        </h2>
+        <ul>
+          <% flash[:error].each_with_index do |msg,index| %>
+            <li><%= "#{index + 1}.#{msg}" %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
