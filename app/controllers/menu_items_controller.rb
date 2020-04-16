@@ -10,10 +10,9 @@ class MenuItemsController < ApplicationController
 
   def create
     menu = Menu.where(name: params[:menu_name].capitalize).exists? ? Menu.where(name: params[:menu_name].capitalize).first : Menu.new(name: params[:menu_name].capitalize)
+    menu.save
     menu_item = MenuItem.new(name: params[:name].capitalize, description: params[:description].capitalize, menu_id: menu.id, price: params[:price])
-    if menu.valid? && menu_item.valid?
-      menu.save!
-      menu_item.save!
+    if menu.save && menu_item.save
       flash[:notice] = "Item added successfully!"
       redirect_to menus_path
     else
