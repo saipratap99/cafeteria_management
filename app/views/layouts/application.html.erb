@@ -16,7 +16,7 @@
           <li class="cafeteria-navbarButton"><%= link_to "Pending Orders", pending_orders_path%></li>
           <li class="cafeteria-navbarButton"><%= link_to "Orders", orders_path %></li>
           <li class="cafeteria-navbarButton"><%= link_to "Cart", cart_path %></li>
-          <li class="cafeteria-navbarButton"><a href="#"> LogOut </a></li>
+          <li class="cafeteria-navbarButton"><%= link_to "LogOut", destroy_session_path, method: :delete %></li>
         </ul>
       </nav>
       <div class="search-box">
