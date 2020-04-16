@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def ensure_onwer_logged_in
+  def ensure_owner_logged_in
     unless current_user.is_owner?
       redirect_to menus_path
     end

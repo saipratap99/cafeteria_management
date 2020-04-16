@@ -2,14 +2,8 @@ class OrdersController < ApplicationController
   # created by cmd
   # rails generate controller Orders
 
-  skip_before_action :verify_authenticity_token
-
   def index
-    if current_user.is_owner?
-      orders = User.all
-    else
-      orders = current_user.orders
-    end
+    orders = current_user.orders
   end
 
   def show
@@ -20,7 +14,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.where("status = ? and user_id = ?", "being_created", current_user.id).first
+    @order = current_user.orders.being_created
     @order.status = "order_confirmed"
     @order.date = Time.now
     @order.save!
@@ -38,5 +32,10 @@ class OrdersController < ApplicationController
 
   def cart
     @order = current_user.orders.where("status = ?", "being_created").first
+  end
+
+  def all_orders
+    ensure_owner_logged_in
+    @all_orders = Order.all
   end
 end

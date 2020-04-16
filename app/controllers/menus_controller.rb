@@ -4,11 +4,10 @@ class MenusController < ApplicationController
 
   def index
     @menus = Menu.all
-    @order = current_user.orders.where("status= ?", "being_created").first
+    @order = current_user.orders.being_created
   end
 
   def show
-    render plain: Menu.find(params[:id]).name
   end
 
   def create

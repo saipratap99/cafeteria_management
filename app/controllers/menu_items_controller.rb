@@ -6,7 +6,6 @@ class MenuItemsController < ApplicationController
   end
 
   def show
-    render plain: MenuItem.find(params[:id]).pleasant_string
   end
 
   def create

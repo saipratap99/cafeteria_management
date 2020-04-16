@@ -15,6 +15,10 @@ class Order < ApplicationRecord
     where("status= ?", "order_confirmed")
   end
 
+  def self.being_created
+    where("status= ?", "being_created").first
+  end
+
   def order_status
     if status == "being_created"
       "Being created"
