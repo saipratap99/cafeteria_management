@@ -4,7 +4,9 @@
       <li class="menu">
         <span class="menuItem-delete">
           <%= link_to menu, method: :delete, data: {confirm: 'Are you sure?'} do %>
-            <%= image_tag "trash.png" %>
+            <% if @current_user.is_owner? %>
+              <%= image_tag "trash.png" %>
+            <% end %>
           <% end %>
         </span>
         <a href=<%= "##{menu.name}" %>><%= menu.name %></a>

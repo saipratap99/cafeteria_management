@@ -5,15 +5,18 @@ class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    orders = current_user.orders
-    #render plain: Order.all.map { |order| order.to_a_string }.join("\n")
+    if current_user.is_owner?
+      orders = User.all
+    else
+      orders = current_user.orders
+    end
   end
 
   def show
-    render plain: Order.find(params[:id]).to_a_string
   end
 
   def pending_orders
+    ensure_owner_or_clerk_logged_in
   end
 
   def create
@@ -25,6 +28,7 @@ class OrdersController < ApplicationController
   end
 
   def update
+    ensure_owner_or_clerk_logged_in
     @order = Order.find(params[:id])
     @order.status = "order_delivered"
     @order.delivered_at = Time.now

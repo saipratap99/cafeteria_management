@@ -8,11 +8,13 @@
             <%=menu_item.name%>
             <span class="menuItem-price">₹<%=menu_item.price%><span><a href=""><%= image_tag "edit.png" %></a></span></span>
           </p>
-          <p class="each-menuItem-delete">
-            <%= link_to menu_item, method: :delete, data: {confirm: 'Are you sure?'} do %>
-              <%= image_tag "trash.png" %>
-            <% end %>
-          </p>
+          <% if @current_user.is_owner? %>
+            <p class="each-menuItem-delete">
+              <%= link_to menu_item, method: :delete, data: {confirm: 'Are you sure?'} do %>
+                <%= image_tag "trash.png" %>
+              <% end %>
+            </p>
+          <% end %>
           <p class="orderItem-add">
             <% if @order%>
               <%if @order.order_items.get_order_item(menu_item.id).exists?%>
