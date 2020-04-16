@@ -1,28 +1,28 @@
 <div class="cart">
   <h3 class="cart-heading">Cart</h3>
-  <%if @order %>
+  <% if @order %>
     <div class="cart-item-price">
       <p class="cart-item-heading" >
         <span>Item Name</span >
         <span class="total-price">Price</span>
       </p>
       <ul>
-        <%@order.order_items.each do |item|%>
+        <% @order.order_items.each do |item| %>
           <li class="cart-item" >
-            <span><%=item.menu_item_name%></span >
-            <span class="total-price">Rs.<%=item.menu_item_price%></span>
+            <span><%= item.menu_item_name %></span >
+            <span class="total-price">Rs.<%= item.menu_item_price %></span>
           </li>
-        <%end%>
+        <% end %>
       </ul>
       <p class="cart-total-price" >
         <span>Total Price</span >
-        <span class="total-price"><%=@order.total_price%></span>
+        <span class="total-price"><%= @order.total_price %></span>
       </p>
-      <%=form_with(model: @order,url: orders_path,method: "post",local: true) do |form|%>
+      <%= form_with(model: @order, url: orders_path, method: "post", local: true) do |form| %>
         <%=form.submit "Checkout",class:"cart-checkout"%>
-      <%end%>
-    <%else%>
+      <% end %>
+    <% else %>
       <h2 class="empty-cart">Uh oh! Your cart is empty</h2>
-    <%end%>
+    <% end %>
   </div>
 </div>

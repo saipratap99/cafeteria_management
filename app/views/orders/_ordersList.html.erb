@@ -1,30 +1,30 @@
-<%orders.each do |order|%>
+<% orders.each do |order| %>
   <div class="each-order">
     <p>
-      <span>Order Id:<%=order.id%></span>
+      <span>Order Id:<%= order.id %></span>
       <span class="total-price">Rs.<%=order.total_price%></span>
     </p>
     <p class="ordered_at">
-      <%=order.date.strftime("%d %B,%Y - %I:%M %p")%>
+      <%= order.date.strftime("%d %B,%Y - %I:%M %p") %>
     </p>
     <p>
-      <%if mark_as_delivered%>
-        <%=link_to "Mark as Delivered",order_path(order.id),method: "patch"%>
+      <% if mark_as_delivered %>
+        <%= link_to "Mark as Delivered", order_path(order.id), method: "patch" %>
       <% else %>
-        <%=link_to "View Details",order_path(order.id)%>
-      <%end%>
+        <%= link_to "View Details", order_path(order.id) %>
+      <% end %>
       <span class="each-order-status">
-        <%=order.order_status%>
+        <%= order.order_status %>
       </span>
     </p>
     <section class="order-details" id="order-details">
       <ul>
-        <% order.order_items.each do |menu_item|%>
+        <% order.order_items.each do |menu_item| %>
           <li class="order-item" >
-            <span><%=menu_item.menu_item_name%></span >
-            <span class="total-price">Rs.<%=menu_item.menu_item_price%></span>
+            <span><%= menu_item.menu_item_name %></span >
+            <span class="total-price">Rs.<%= menu_item.menu_item_price %></span>
           </li>
-        <%end%>
+        <% end %>
       </ul>
     </section>
   </div>

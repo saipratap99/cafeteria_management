@@ -3,7 +3,7 @@
     <%= form_with url: session_path, class: "login-form" do |f| %>
       <p class="login-signUp">
         New to Cafeteria
-        <%=link_to "Sign Up here", new_user_path, class: "signUp-link" %>
+        <%= link_to "Sign Up here", new_user_path, class: "signUp-link" %>
       </p>
       <%= f.email_field :email,
                          placeholder: "Email",

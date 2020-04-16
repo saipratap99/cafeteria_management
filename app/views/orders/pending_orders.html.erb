@@ -1,4 +1,4 @@
 <div class="orders">
   <h3 class="orders-heading">Pending Orders</h3>
-  <%=render partial:"ordersList",locals: { orders: Order.pending_orders,mark_as_delivered: true} %>
+  <%= render partial:"ordersList",locals: { orders: Order.pending_orders, mark_as_delivered: true} %>
 </div>

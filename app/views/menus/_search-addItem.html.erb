@@ -1,0 +1,16 @@
+<div class="search-box">
+  <form>
+    <input type="search" placeholder="Search for item">
+    <input type="submit" value="Seach Item">
+    <input type="button" onclick=displayForm() value="Add Item">
+  </form>
+</div>
+<div class="addItem-form" id="addItem-form">
+  <%= form_with(model: @menu, url: menu_items_url, method: "post", local: true) do |form|%>
+    <%= form.text_field :name, placeholder:"Item name" %>
+    <%= form.number_field :price, placeholder:"Item price", in:1..10000 %>
+    <%= form.text_field :description, placeholder:"Description of item" %>
+    <%= form.text_field :menu_name, placeholder:"Menu name" %>
+    <%= form.submit "Add Item" %>
+  <% end %>
+</div>
