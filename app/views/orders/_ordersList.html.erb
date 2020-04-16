@@ -5,6 +5,11 @@
       <span class="total-price">Rs.<%= order.total_price %></span>
     </p>
     <p class="ordered_at">
+      <% if order.user.is_clerk? || order.user.is_owner? %>
+        <%= "Walk in customer" %>
+      <% else %>
+        <%= order.user.name.capitalize %>
+      <% end %>
       <% if order.date %>
         <%= order.date.strftime("%d %B,%Y - %I:%M %p") %>
       <% end %>
@@ -21,7 +26,7 @@
     </p>
     <section class="order-details" id="order-details">
       <ul>
-        <% order.order_items.each do |menu_item| %>
+        <% order.order_items.order(:menu_item_name).each do |menu_item| %>
           <li class="order-item" >
             <span><%= menu_item.menu_item_name %></span >
             <span class="total-price">Rs.<%= menu_item.menu_item_price %></span>

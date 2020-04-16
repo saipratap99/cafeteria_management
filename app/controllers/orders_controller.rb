@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   # rails generate controller Orders
 
   def index
-    orders = current_user.orders
+    orders = current_user.orders.order(:id)
   end
 
   def show
@@ -18,7 +18,8 @@ class OrdersController < ApplicationController
     @order.status = "order_confirmed"
     @order.date = Time.now
     @order.save!
-    redirect_to root_path
+    flash[:notice] = "Order recived! Soon your order will be delivered"
+    redirect_to menus_path
   end
 
   def update
@@ -27,15 +28,16 @@ class OrdersController < ApplicationController
     @order.status = "order_delivered"
     @order.delivered_at = Time.now
     @order.save!
+    flash[:notice] = "#{@order.id} is marked as delivered!"
     redirect_to "/pending_orders"
   end
 
   def cart
-    @order = current_user.orders.where("status = ?", "being_created").first
+    @order = current_user.orders.being_created
   end
 
   def all_orders
     ensure_owner_logged_in
-    @all_orders = Order.all
+    @all_orders = Order.order(:id)
   end
 end

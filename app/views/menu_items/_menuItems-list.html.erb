@@ -2,7 +2,7 @@
   <% @menus.each do |menu|%>
     <ul class="menuItems-list">
       <h3 class="menuName" id=<%=menu.name%>><%=menu.name%></h3>
-      <%menu.menu_items.each do |menu_item|%>
+      <%menu.menu_items.order(:name).each do |menu_item|%>
         <li class="menuItem">
           <p>
             <%=menu_item.name%>

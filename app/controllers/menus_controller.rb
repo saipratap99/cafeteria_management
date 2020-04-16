@@ -3,7 +3,7 @@ class MenusController < ApplicationController
   # rails generate controller Menus
 
   def index
-    @menus = Menu.all
+    @menus = Menu.order(:name)
     @order = current_user.orders.being_created
   end
 

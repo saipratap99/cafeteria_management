@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     password = params[:password]
     password_confirmation = params[:password_confirmation]
 
-    user = User.new(name: name, email: email, role: "customer", password: password, password_confirmation: password_confirmation)
+    user = User.new(name: name.capitalize, email: email, role: "customer", password: password, password_confirmation: password_confirmation)
     if user.password_confirmation
       user.save!
       flash[:notice] = "Welcome #{user.name}!"
