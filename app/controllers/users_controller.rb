@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   skip_before_action :ensure_user_logged_in
 
   def new
+    if current_user
+      flash[:notice] = "Your'e already signed up user"
+      redirect_to menus_path
+    end
   end
 
   def create
