@@ -15,13 +15,13 @@ class UsersController < ApplicationController
     password_confirmation = params[:password_confirmation]
 
     user = User.new(name: name.capitalize, email: email, role: "customer", password: password, password_confirmation: password_confirmation)
-    if user.password_confirmation
+    if user.save
       user.save!
       flash[:notice] = "Welcome #{user.name}!"
       session[:current_user_id] = user.id
       redirect_to menus_path
     else
-      flash[:alert] = "Password doesn't match"
+      flash[:error] = user.errors.full_messages
       redirect_to new_user_path
     end
   end
