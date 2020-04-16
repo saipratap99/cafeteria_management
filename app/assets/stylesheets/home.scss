@@ -71,3 +71,27 @@ body{
 .error-message{
   text-align: left;
 }
+.home-main-gif{
+  width:50%;
+  margin: 5px auto;
+}
+.home-main{
+  font-family: sans-serif;
+  padding: 8px;
+  text-align: center;
+  color: rgba(255, 68, 0, 0.904);
+}
+.order-btn{
+  margin: 5px auto;
+  text-align: center;
+}
+.order-btn > a{
+  font-size: 26px;
+  font-family: sans-serif;
+  text-decoration: none;
+  background-color: rgba(255, 68, 0, 0.904);
+  color: white;
+  padding:10px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+}
