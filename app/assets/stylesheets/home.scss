@@ -63,3 +63,11 @@ body{
   border: 2px solid darkred;
   color: darkred;
 }
+
+#error_explanation h2{
+  font-size: 21px;
+  font-weight: bold;
+}
+.error-message{
+  text-align: left;
+}

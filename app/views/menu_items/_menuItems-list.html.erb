@@ -6,7 +6,15 @@
         <li class="menuItem">
           <p>
             <%=menu_item.name%>
-            <span class="menuItem-price">₹<%=menu_item.price%><span><a href=""><%= image_tag "edit.png" %></a></span></span>
+            <span class="menuItem-price">₹<%=menu_item.price%>
+              <% if @current_user.is_owner? %>
+                <span>
+                  <%= link_to menu_item,method: :patch do %>
+                    <%= image_tag "edit.png", class: "TodoSection-todoDelete" %>
+                  <% end %>
+                </span>
+              <%end %>
+            </span>
           </p>
           <% if @current_user.is_owner? %>
             <p class="each-menuItem-delete">

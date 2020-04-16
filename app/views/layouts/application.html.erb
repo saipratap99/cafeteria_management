@@ -49,11 +49,11 @@
     <% if flash[:error] %>
       <div id="error_explanation">
         <h2>
-          <%= pluralize(flash[:error].count, "error") %> prohibited this todo from being saved:
+          <%= pluralize(flash[:error].count, "error") %> prohibited this item from being saved:
         </h2>
         <ul>
           <% flash[:error].each_with_index do |msg,index| %>
-            <li><%= "#{index + 1}.#{msg}" %></li>
+            <li class="error-msg"><%= "#{index + 1}.#{msg}" %></li>
           <% end %>
         </ul>
       </div>

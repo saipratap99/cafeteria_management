@@ -9,12 +9,17 @@ class MenuItemsController < ApplicationController
   end
 
   def create
-    if Menu.where(name: params[:menu_name].capitalize).exists?
-      menu_item = MenuItem.create!(name: params[:name].capitalize, description: params[:description].capitalize, menu_id: Menu.where(name: params[:menu_name].capitalize).first.id, price: params[:price])
+    menu = Menu.where(name: params[:menu_name].capitalize).exists? ? Menu.where(name: params[:menu_name].capitalize).first : Menu.new(name: params[:menu_name].capitalize)
+    menu_item = MenuItem.new(name: params[:name].capitalize, description: params[:description].capitalize, menu_id: menu.id, price: params[:price])
+    if menu.save && menu_item.save
+      menu.save!
+      menu_item.save!
+      flash[:notice] = "Item added successfully!"
+      redirect_to menus_path
     else
-      menu_item = MenuItem.create!(name: params[:name].capitalize, description: params[:description].capitalize, menu_id: Menu.create!(name: params[:menu_name].capitalize).id, price: params[:price])
+      flash[:error] = menu.errors.full_messages + menu_item.errors.full_messages
+      redirect_to menus_path
     end
-    redirect_to menus_path
   end
 
   def destroy
