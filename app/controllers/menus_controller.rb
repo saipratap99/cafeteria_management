@@ -4,6 +4,7 @@ class MenusController < ApplicationController
 
   def index
     @menus = Menu.all
+    @order = current_user.orders.where("status= ?", "being_created").first
   end
 
   def show
@@ -18,6 +19,6 @@ class MenusController < ApplicationController
   def destroy
     menu = Menu.find(params[:id])
     menu.destroy
-    redirect_to root_path
+    redirect_to menus_path
   end
 end

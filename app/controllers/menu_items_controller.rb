@@ -15,12 +15,12 @@ class MenuItemsController < ApplicationController
     else
       menu_item = MenuItem.create!(name: params[:name].capitalize, description: params[:description].capitalize, menu_id: Menu.create!(name: params[:menu_name].capitalize).id, price: params[:price])
     end
-    redirect_to "/"
+    redirect_to menus_path
   end
 
   def destroy
     MenuItem.find(params[:id]).destroy
-    redirect_to root_path
+    redirect_to menus_path
   end
 
   private
