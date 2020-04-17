@@ -19,7 +19,7 @@
         <span class="total-price"><%= @order.total_price %></span>
       </p>
       <%= form_with(model: @order, url: orders_path, method: "post", local: true) do |form| %>
-        <%=form.submit "Checkout",class:"cart-checkout"%>
+        <%=form.submit "Checkout",data: { "disable-with": "Processing..." },class:"cart-checkout"%>
       <% end %>
     <% else %>
       <h2 class="empty-cart">Uh oh! Your cart is empty</h2>
