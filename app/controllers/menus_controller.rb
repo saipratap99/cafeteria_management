@@ -16,6 +16,7 @@ class MenusController < ApplicationController
   end
 
   def destroy
+    ensure_owner_logged_in
     menu = Menu.find(params[:id])
     menu.destroy
     redirect_to menus_path

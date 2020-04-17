@@ -52,18 +52,26 @@
   border-radius: 10px;
 }
 
- .orderItem-add{
+ .orderItem-updateItem{
    margin-left: auto;
+   margin-right: 15px;
+  }
+
+  .orderItem-add{
    border: 1px solid #a13cf9;
    color: #a13cf9;
-   margin-right: 5px;
+   padding: 8px;
   }
- .menuItem-price{
+
+ .menuItem-details{
    display: block;
    padding: 5px;
    margin: 5px;
    font-size: 18px;
    color: rgb(92, 91, 91);
+ }
+ .menuItem-price{
+   max-width: 35px;
  }
  .orderItem-add > a{
   color: #a13cf9;
@@ -84,7 +92,14 @@
 }
 .each-menuItem-delete > a img{
   margin-left: auto;
+  padding: 8px;
 }
 .menuItem:hover > .each-menuItem-delete{
   display: inline-block;
+}
+.menuItem-description{
+  margin-left:25px;
+  padding: 5px;
+  color:rgba(41, 38, 43, 0.822);
+  border-left: 1px dotted black;
 }

@@ -22,6 +22,7 @@ class MenuItemsController < ApplicationController
   end
 
   def destroy
+    ensure_owner_logged_in
     MenuItem.find(params[:id]).destroy
     redirect_to menus_path
   end
