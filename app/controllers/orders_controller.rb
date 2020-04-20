@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   def create
     @order = current_user.orders.being_created
     @order.status = "order_confirmed"
-    @order.date = Time.now
+    @order.date = Time.now + 19800
     @order.save!
     flash[:notice] = "Order recived! Soon your order will be delivered"
     redirect_to menus_path
@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
     ensure_owner_or_clerk_logged_in
     @order = Order.find(params[:id])
     @order.status = "order_delivered"
-    @order.delivered_at = Time.now
+    @order.delivered_at = Time.now + 19800
     @order.save!
     flash[:notice] = "#{@order.id} is marked as delivered!"
     redirect_to "/pending_orders"
