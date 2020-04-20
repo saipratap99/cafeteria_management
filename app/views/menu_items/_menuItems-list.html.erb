@@ -13,7 +13,7 @@
           <p class="orderItem-updateItem">
             <% if @current_user.is_owner? %>
               <p class="each-menuItem-delete">
-                <%= link_to menu_item,method: :patch do %>
+                <%= link_to edit_menu_item_path( id:menu_item.id ) do %>
                   <%= image_tag "edit-26.png", class: "TodoSection-todoDelete" %>
                 <% end %>
                 <%= link_to menu_item, method: :delete, data: {confirm: 'Are you sure?'} do %>
@@ -26,12 +26,12 @@
                 <%if @order.order_items.get_order_item(menu_item.id).exists?%>
                   <%= link_to "-", "order_items/#{@order.get_order_item_id(menu_item.id)} ", {:method => :delete} %>
                   <%= @order.order_items.get_order_item(menu_item.id).count %>
-                  <%= link_to "+", order_items_path(menu_item_id: menu_item.id,user_id:1 ), {:method => :post} %>
+                  <%= link_to "+", order_items_path(menu_item_id: menu_item.id ), {:method => :post} %>
                 <% else %>
-                  <%=link_to "Add +", order_items_path(menu_item_id: menu_item.id,user_id:1 ), {:method => :post} %>
+                  <%=link_to "Add +", order_items_path(menu_item_id: menu_item.id ), {:method => :post} %>
                 <% end %>
               <% else %>
-                <%= link_to "Add +", order_items_path(menu_item_id: menu_item.id,user_id:1 ), {:method => :post} %>
+                <%= link_to "Add +", order_items_path(menu_item_id: menu_item.id ), {:method => :post} %>
               <% end %>
             </p>
           </p>

@@ -65,13 +65,13 @@
 
  .menuItem-details{
    display: block;
-   padding: 5px;
+   padding: 2px;
    margin: 5px;
    font-size: 18px;
-   color: rgb(92, 91, 91);
  }
  .menuItem-price{
    max-width: 35px;
+   color: #535665;
  }
  .orderItem-add > a{
   color: #a13cf9;
@@ -98,8 +98,9 @@
   display: inline-block;
 }
 .menuItem-description{
+  font-size: 15px;
   margin-left:25px;
   padding: 5px;
-  color:rgba(41, 38, 43, 0.822);
+  color:#7e808c;
   border-left: 1px dotted black;
 }

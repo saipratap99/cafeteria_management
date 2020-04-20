@@ -21,7 +21,7 @@
   color: rgb(199, 26, 26);
 }
 
-.signUp-form input[type="text"] ,input[type="password"] ,#user_name {
+.signUp-form input[type="text"] ,input[type="password"],.edit-item-price ,#user_name {
   display: block;
   margin : 5px auto;
   width: 400px;

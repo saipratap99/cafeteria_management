@@ -1,0 +1,31 @@
+<main class="signUpBox">
+  <p class="signUp-login">
+    Edit item
+  </p>
+  <%= form_with url: menu_item_path, method: :patch, class: "signUp-form" do |form| %>
+    <%= form.text_field :name,
+                        placeholder: "Item Name",
+                        value: @menu_item.name,
+                        autofocus:"autofocus"
+    %>
+    <br>
+    <%= form.number_field :price,
+                          placeholder: "Price",
+                          value: @menu_item.price,
+                          class: "edit-item-price",
+                          autofocus:"autofocus"
+    %>
+    <br>
+    <%= form.text_field :description,
+                         value: @menu_item.description,
+                         placeholder: "Description"
+    %>
+    <br>
+    <%= form.text_field :menu_name,
+                        value: @menu_item.menu.name,
+                        placeholder: "Menu Name"
+    %>
+    <br>
+    <%= form.submit "Update", data: { "disable-with": "Updating..." }, class: "signUp-button"%>
+  <%end%>
+</main>

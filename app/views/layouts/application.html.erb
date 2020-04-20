@@ -8,7 +8,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <div>
+    <div class="head-of-the-page">
       <nav class="cafeteria-navbar">
         <h2 class="cafeteria-navbarHeading"><%= image_tag "cooking (1).png" %>Cafeteria Management</h2>
         <ul class="cafeteria-navbarAllButtons">
@@ -39,25 +39,27 @@
         </section>
         <%= yield :head %>
       </div>
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <%end%>
+      <% if flash.alert %>
+        <p class="alert"><%= alert %></p>
+      <%end%>
+      <% if flash[:error] %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(flash[:error].count, "error") %> prohibited this FORM being saved:
+          </h2>
+          <ul>
+            <% flash[:error].each_with_index do |msg,index| %>
+              <li class="error-msg"><%= "#{index + 1}.#{msg}" %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
     </div>
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <%end%>
-    <% if flash.alert %>
-      <p class="alert"><%= alert %></p>
-    <%end%>
-    <% if flash[:error] %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(flash[:error].count, "error") %> prohibited this FORM being saved:
-        </h2>
-        <ul>
-          <% flash[:error].each_with_index do |msg,index| %>
-            <li class="error-msg"><%= "#{index + 1}.#{msg}" %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <%= yield %>
+    <div class="content">
+      <%= yield %>
+    </div>
   </body>
 </html>
