@@ -39,4 +39,8 @@ class Order < ApplicationRecord
   def get_order_item_id(menu_item_id)
     order_items.where(menu_item_id: menu_item_id).first.id
   end
+
+  def all_menu_item_names
+    order_items.order(:menu_item_name).map { |item| item.menu_item_name }
+  end
 end

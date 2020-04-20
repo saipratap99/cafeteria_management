@@ -34,10 +34,10 @@
     </p>
     <section class="order-details" id="order-details">
       <ul>
-        <% order.order_items.order(:menu_item_name).each do |menu_item| %>
+        <% order.all_menu_item_names.uniq.each do |menu_item| %>
           <li class="order-item" >
-            <span><%= menu_item.menu_item_name %></span >
-            <span class="total-price">Rs.<%= menu_item.menu_item_price %></span>
+            <span><%= menu_item + " x"+order.all_menu_item_names.count(menu_item).to_s %></span >
+            <span class="total-price">Rs.<%= order.order_items.get_menu_item_price(menu_item)*order.all_menu_item_names.count(menu_item) %></span>
           </li>
         <% end %>
       </ul>
