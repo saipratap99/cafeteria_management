@@ -26,6 +26,7 @@
 .menu > a{
   color: #0509c4;
   margin-left: auto;
+  padding: 2px 8px;
 }
 .menuItem {
   height: 65px;

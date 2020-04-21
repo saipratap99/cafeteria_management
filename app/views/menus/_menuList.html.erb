@@ -2,15 +2,15 @@
   <ul>
     <% @menus.each do |menu| %>
       <li class="menu">
-        <span class="menuItem-delete">
-          <%= link_to menu, method: :delete, data: {confirm: 'Are you sure?'} do %>
-            <% if @current_user.is_owner? %>
+        <% if @current_user.is_owner? %>
+          <span class="menuItem-delete">
+            <%= link_to menu, method: :delete, data: {confirm: 'Are you sure?'} do %>
               <%= image_tag "trash.png" %>
             <% end %>
-          <% end %>
-        </span>
+          </span>
+        <% end %>
         <a href=<%= "##{menu.name}" %>><%= menu.name %></a>
       </li>
-    <%end %>
+    <% end %>
   </ul>
 </div>

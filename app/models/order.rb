@@ -36,8 +36,8 @@ class Order < ApplicationRecord
     price
   end
 
-  def get_order_item_id(menu_item_id)
-    order_items.where(menu_item_id: menu_item_id).first.id
+  def order_item(menu_item_name)
+    order_items.where(menu_item_name: menu_item_name).first
   end
 
   def all_menu_item_names
