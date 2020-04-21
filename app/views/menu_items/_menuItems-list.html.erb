@@ -22,8 +22,8 @@
               </p>
             <% end %>
             <p class="orderItem-add">
-              <% if @order%>
-                <%if @order.order_items.get_order_item(menu_item.id).exists?%>
+              <% if @order %>
+                <% if @order.order_items.get_order_item(menu_item.id).exists? %>
                   <%= link_to "-", "order_items/#{@order.get_order_item_id(menu_item.id)} ", {:method => :delete} %>
                   <%= @order.order_items.get_order_item(menu_item.id).count %>
                   <%= link_to "+", order_items_path(menu_item_id: menu_item.id ), {:method => :post} %>
