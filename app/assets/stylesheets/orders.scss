@@ -55,6 +55,12 @@
 }
 
 .ordered_at{
+  display: flex;
+  align-items: center;
   font-size: 15px;
   color:  rgb(83, 81, 81);
+}
+.ordered_at > img{
+  padding: 3px;
+
 }

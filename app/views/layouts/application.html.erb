@@ -10,22 +10,40 @@
   <body>
     <div class="head-of-the-page">
       <nav class="cafeteria-navbar">
-        <h2 class="cafeteria-navbarHeading"><%= image_tag "cooking (1).png" %>Cafeteria Management</h2>
+        <h2 class="cafeteria-navbarHeading">
+          <%= image_tag "cooking (1).png" %>Cafeteria Management
+        </h2>
         <ul class="cafeteria-navbarAllButtons">
           <% if @current_user %>
-            <li class="cafeteria-navbarButton"><%= link_to "Home", menus_path %></li>
+            <li class="cafeteria-navbarButton">
+              <%= link_to "Home", menus_path %>
+            </li>
             <% if @current_user.is_clerk? || @current_user.is_owner? %>
-              <li class="cafeteria-navbarButton"><%= link_to "Pending Orders", pending_orders_path%></li>
+              <li class="cafeteria-navbarButton">
+                <%= link_to "Pending Orders", pending_orders_path%>
+              </li>
             <% end %>
             <% if @current_user.is_owner? %>
-              <li class="cafeteria-navbarButton"><%= link_to "All Orders", all_orders_path%></li>
+              <li class="cafeteria-navbarButton">
+                <%= link_to "All Orders", all_orders_path%>
+              </li>
             <% end %>
-            <li class="cafeteria-navbarButton"><%= link_to "Orders", orders_path %></li>
-            <li class="cafeteria-navbarButton"><%= link_to "Cart", cart_path %></li>
-            <li class="cafeteria-navbarButton"><%= link_to "LogOut", destroy_session_path, method: :delete %></li>
+            <li class="cafeteria-navbarButton">
+              <%= link_to "Orders", orders_path %>
+            </li>
+            <li class="cafeteria-navbarButton">
+              <%= link_to "Cart", cart_path %>
+            </li>
+            <li class="cafeteria-navbarButton">
+              <%= link_to "LogOut", destroy_session_path, method: :delete %>
+            </li>
           <% else %>
-            <li class="cafeteria-navbarButton"><%= link_to "Sign In", new_session_path %></li>
-            <li class="cafeteria-navbarButton"><%= link_to "Sign Up", new_user_path %></li>
+            <li class="cafeteria-navbarButton">
+              <%= link_to "Sign In", new_session_path %>
+            </li>
+            <li class="cafeteria-navbarButton">
+              <%= link_to "Sign Up", new_user_path %>
+            </li>
           <% end %>
         </ul>
       </nav>

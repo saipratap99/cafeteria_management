@@ -6,6 +6,7 @@
     </p>
     <p class="ordered_at">
       <% if order.user.is_clerk? || order.user.is_owner? %>
+        <%= image_tag "walk-in1.png" %>
         <%= "Walk in customer" %>
       <% else %>
         <%= order.user.name.capitalize %>
@@ -36,8 +37,12 @@
       <ul>
         <% order.all_menu_item_names.uniq.each do |menu_item| %>
           <li class="order-item" >
-            <span><%= menu_item + " x"+order.all_menu_item_names.count(menu_item).to_s %></span >
-            <span class="total-price">Rs.<%= order.order_items.get_menu_item_price(menu_item)*order.all_menu_item_names.count(menu_item) %></span>
+            <span>
+              <%= menu_item + " x"+order.all_menu_item_names.count(menu_item).to_s %>
+            </span >
+            <span class="total-price">
+              Rs.<%= order.order_items.get_menu_item_price(menu_item)*order.all_menu_item_names.count(menu_item) %>
+            </span>
           </li>
         <% end %>
       </ul>
