@@ -16,32 +16,40 @@
         <ul class="cafeteria-navbarAllButtons">
           <% if @current_user %>
             <li class="cafeteria-navbarButton">
+              <%= image_tag "home1.png" %>
               <%= link_to "Home", menus_path %>
             </li>
             <% if @current_user.is_clerk? || @current_user.is_owner? %>
               <li class="cafeteria-navbarButton">
+                <%= image_tag "pending-orders1.png" %>
                 <%= link_to "Pending Orders", pending_orders_path%>
               </li>
             <% end %>
             <% if @current_user.is_owner? %>
               <li class="cafeteria-navbarButton">
+                <%= image_tag "all-orders.png" %>
                 <%= link_to "All Orders", all_orders_path%>
               </li>
             <% end %>
             <li class="cafeteria-navbarButton">
+              <%= image_tag "orders.png" %>
               <%= link_to "Orders", orders_path %>
             </li>
             <li class="cafeteria-navbarButton">
+              <%= image_tag "cart1.png" %>
               <%= link_to "Cart", cart_path %>
             </li>
             <li class="cafeteria-navbarButton">
+              <%= image_tag "logout.png" %>
               <%= link_to "LogOut", destroy_session_path, method: :delete %>
             </li>
           <% else %>
             <li class="cafeteria-navbarButton">
+              <%= image_tag "sign-in.png" %>
               <%= link_to "Sign In", new_session_path %>
             </li>
             <li class="cafeteria-navbarButton">
+              <%= image_tag "sign-up.png" %>
               <%= link_to "Sign Up", new_user_path %>
             </li>
           <% end %>

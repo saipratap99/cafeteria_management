@@ -30,6 +30,8 @@ body{
   margin-left:auto ;
 }
 .cafeteria-navbarButton{
+  display: flex;
+  align-items: center;
   list-style: none;
   margin: 5px;
   padding: 5px;
