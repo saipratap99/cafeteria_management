@@ -8,8 +8,8 @@ class Order < ApplicationRecord
     "#{id} #{date} ITEMS:#{order_items.map { |item| item.menu_item_name }.join("--")} TOTAL PRICE:#{total_price} STATUS:++#{status} #{delivered_at}"
   end
 
-  def self.user_orders
-    where("status= ? and user_id = ?", "order_delivered", 1)
+  def self.delivered_and_confirmed
+    where.not("status = ? ", "being_created")
   end
 
   def self.pending_orders
