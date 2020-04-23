@@ -1,5 +1,5 @@
 <main class="all-users">
-  <h3>Users and Clerks</h3>
+  <h3> Clerks</h3>
   <section>
     <table class="all-clerks">
       <tr>
@@ -15,14 +15,15 @@
             <td><%= clerk.name %></td>
             <td><%= clerk.email %></td>
             <td>
-              <% clerk.orders.each do |id| %>
-                <%= link_to id, orders_path %>
+              <% clerk.orders.delivered_and_confirmed.ids.each do |id| %>
+                <%= link_to id, "orders/all##{id}" %>,
               <% end %>
             </td>
           </tr>
         <% end %>
       <% end %>
     </table>
+    <h3> Users </h3>
     <table class="all-customers">
       <tr>
         <th>Id</th>
@@ -38,7 +39,7 @@
             <td><%= customer.email %></td>
             <td>
               <% customer.orders.delivered_and_confirmed.ids.each do |id| %>
-                <%= link_to id, "orders##{id}" %>,
+                <%= link_to id, "orders/all##{id}" %>,
               <% end %>
             </td>
           </tr>
