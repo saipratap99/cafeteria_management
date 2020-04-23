@@ -8,6 +8,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    ensure_user_logged_in
+    ensure_owner_logged_in
+    @clerks = User.clerks
+    @customers = User.customers
+  end
+
   def create
     name = params[:name]
     email = params[:email]

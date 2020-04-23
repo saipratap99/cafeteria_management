@@ -12,4 +12,12 @@ class User < ApplicationRecord
   def is_owner?
     owner = role == "owner" ? true : false
   end
+
+  def self.clerks
+    where("role = ?", "clerk")
+  end
+
+  def self.customers
+    where("role = ?", "customer")
+  end
 end
