@@ -1,50 +1,5 @@
 <main class="all-users">
-  <h3> Clerks</h3>
-  <section>
-    <table class="all-clerks">
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Orders</th>
-      </tr>
-      <% if @clerks %>
-        <% @clerks.each do |clerk| %>
-          <tr>
-            <td><%= clerk.id %></td>
-            <td><%= clerk.name %></td>
-            <td><%= clerk.email %></td>
-            <td>
-              <% clerk.orders.delivered_and_confirmed.ids.each do |id| %>
-                <%= link_to id, "orders/all##{id}" %>,
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      <% end %>
-    </table>
-    <h3> Users </h3>
-    <table class="all-customers">
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Orders</th>
-      </tr>
-      <% if @customers %>
-        <% @customers.each do |customer| %>
-          <tr>
-            <td><%= customer.id %></td>
-            <td><%= customer.name %></td>
-            <td><%= customer.email %></td>
-            <td>
-              <% customer.orders.delivered_and_confirmed.ids.each do |id| %>
-                <%= link_to id, "orders/all##{id}" %>,
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      <% end %>
-    </table>
-  </section>
+  <%= render partial: "user-details", locals: {roles: nil, owner: @current_user, heading: "Owner"} %>
+  <%= render partial: "user-details", locals: {roles: @clerks, owner: nil, heading: "Clerks"} %>
+  <%= render partial: "user-details", locals: {roles: @customers, owner: nil, heading: "Customers"} %>
 </main>
