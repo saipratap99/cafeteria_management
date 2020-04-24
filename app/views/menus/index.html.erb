@@ -1,4 +1,13 @@
 <%= render partial: "search-addItem" %>
+<% if @current_user.is_clerk? || @current_user.is_owner? %>
+  <div class="walk-in-header">
+    <h3>
+      <%= image_tag "walk-in3.png" %>
+      Order for walk-in customer
+      <%= image_tag "walk-in3.png" %>
+    </h3>
+  </div>
+<% end %>
 <div class="menu-menuItems">
   <%= render partial: "menuList" %>
   <%= render partial: "menu_items/menuItems-list" %>
