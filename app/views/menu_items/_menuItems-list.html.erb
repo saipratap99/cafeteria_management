@@ -8,6 +8,14 @@
         <li class="menuItem">
           <p>
             <%= menu_item.name %>
+            <span class="item-rating">
+              <% menu_item.ratings.to_i.times do %>
+                <%= image_tag "rated-star-16" %>
+              <% end %>
+              <% (5-menu_item.ratings.to_i).times do %>
+                <%= image_tag "star-16" %>
+              <% end %>
+            </span>
             <span class="menuItem-details">
               <span class="menuItem-price">
                 ₹<%= menu_item.price %>

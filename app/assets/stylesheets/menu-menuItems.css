@@ -116,6 +116,12 @@ h3.menuName:target{
   color:#7e808c;
   border-left: 1px dotted black;
 }
+.item-rating{
+  padding: 3px;
+  margin-left: 5px;
+}
+
+
 @keyframes menuHighlight{
   0%{background-color: #a13cf9;color: white;}
   99%{background-color: #a13cf9;color: white;}
