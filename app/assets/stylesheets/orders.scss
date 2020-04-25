@@ -24,6 +24,9 @@
   padding: 5px;
   font-family: sans-serif;
 }
+div.each-order:target{
+  animation: orderHighlight 15s 1;
+}
 .total-price{
   margin-left: auto;
   padding: 5px;
@@ -63,4 +66,9 @@
 .ordered_at > img{
   padding: 3px;
 
+}
+@keyframes orderHighlight{
+  0%{border: 2px solid darkred;}
+  99%{border: 2px solid darkred;}
+  100%{border: 1px solid grey;}
 }

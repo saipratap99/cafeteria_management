@@ -1,8 +1,8 @@
 <% orders.each do |order| %>
-  <div class="each-order">
+  <div class="each-order" id="<%= order.id %>">
     <p>
       <span>Order Id:
-        <a id="<%= order.id %>"><%= order.id %></a>
+        <%= order.id %>
       </span>
       <span class="total-price">Rs.<%= order.total_price %></span>
     </p>

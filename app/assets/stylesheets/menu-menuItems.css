@@ -24,6 +24,9 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: rgba(0, 0, 0, 0.849);
 }
+h3.menuName:target{
+  animation: menuHighlight 15s 1;
+}
 .menu{
   margin: 5px;
   padding: 5px;
@@ -112,4 +115,9 @@
   padding: 5px;
   color:#7e808c;
   border-left: 1px dotted black;
+}
+@keyframes menuHighlight{
+  0%{background-color: #a13cf9;color: white;}
+  99%{background-color: #a13cf9;color: white;}
+  100%{background-color: white;color: black;}
 }
