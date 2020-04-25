@@ -73,7 +73,7 @@ div.each-order:target{
   padding: 3px;
 }
 .rating > img:hover{
-  scale: 1.5;
+  transform: scale(1.5);
 }
 @keyframes orderHighlight{
   0%{border: 2px solid darkred;}

@@ -1,42 +1,46 @@
 <div class="cart">
   <h3 class="cart-heading">Cart</h3>
   <% if @order %>
-    <div class="cart-item-price">
-      <p class="cart-item-heading" >
-        <span>Item Name</span >
-        <span class="total-price">Price</span>
-      </p>
-      <ul>
-        <% @order.all_menu_item_names.uniq.each do |menu_item_name| %>
-          <li class="cart-item" >
-            <span><%= menu_item_name %></span >
-            <span class="total-price">
-              <p class="cartItem-add">
-                <%= link_to "-",
+    <% if @order.order_items.empty? %>
+      <h2 class="empty-cart">Uh oh! Your cart is empty</h2>
+    <% else %>
+      <div class="cart-item-price">
+        <p class="cart-item-heading" >
+          <span>Item Name</span >
+          <span class="total-price">Price</span>
+        </p>
+        <ul>
+          <% @order.all_menu_item_names.uniq.each do |menu_item_name| %>
+            <li class="cart-item" >
+              <span><%= menu_item_name %></span >
+              <span class="total-price">
+                <p class="cartItem-add">
+                  <%= link_to "-",
                             order_item_path(id: @order.order_item(menu_item_name).id, cart: 1),
                             {:method => :delete}
                 %>
-                <%= @order.all_menu_item_names.count(menu_item_name) %>
-                <%= link_to "+",
+                  <%= @order.all_menu_item_names.count(menu_item_name) %>
+                  <%= link_to "+",
                             order_items_path(menu_item_id: @order.order_item(menu_item_name).menu_item_id, cart: 1),
                             {:method => :post} %>
-              </p>
-              <p class="qty-price">
-                Rs.<%= @order.order_items.get_menu_item_price(menu_item_name)*@order.all_menu_item_names.count(menu_item_name) %>
-              </p>
-            </span>
-          </li>
+                </p>
+                <p class="qty-price">
+                  Rs.<%= @order.order_items.get_menu_item_price(menu_item_name)*@order.all_menu_item_names.count(menu_item_name) %>
+                </p>
+              </span>
+            </li>
+          <% end %>
+        </ul>
+        <p class="cart-total-price" >
+          <span>Total Price</span >
+          <span class="total-price"><%= @order.total_price %></span>
+        </p>
+        <%= form_with(model: @order, url: orders_path, method: "post", local: true) do |form| %>
+          <%= form.submit "Checkout",data: { "disable-with": "Processing..." },class:"cart-checkout" %>
         <% end %>
-      </ul>
-      <p class="cart-total-price" >
-        <span>Total Price</span >
-        <span class="total-price"><%= @order.total_price %></span>
-      </p>
-      <%= form_with(model: @order, url: orders_path, method: "post", local: true) do |form| %>
-        <%=form.submit "Checkout",data: { "disable-with": "Processing..." },class:"cart-checkout"%>
-      <% end %>
-    <% else %>
-      <h2 class="empty-cart">Uh oh! Your cart is empty</h2>
+      </div>
     <% end %>
-  </div>
+  <% else %>
+    <h2 class="empty-cart">Uh oh! Your cart is empty</h2>
+  <% end %>
 </div>

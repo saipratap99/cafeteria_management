@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
 
   def all_orders
     ensure_owner_logged_in
-    @all_orders = Order.order(:id)
+    @all_orders = Order.order(id: :desc)
   end
 
   def rating
