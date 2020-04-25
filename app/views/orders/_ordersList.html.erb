@@ -17,24 +17,7 @@
         <%= order.date.strftime("%d %B,%Y - %I:%M %p") %>
       <% end %>
     </p>
-    <p>
-      <% if mark_as_delivered %>
-        <%= link_to "Mark as Delivered", order_path(order.id), method: "patch" %>
-      <% else %>
-        <%= link_to "View Details", order_path(order.id) %>
-      <% end %>
-      <span class="each-order-status"
-            <% if order.delivered_at %>
-              style="color:#11b911;font-weight:bold"
-            <% elsif order.date %>
-              style="color:#ff6000e8;font-weight:bold"
-            <% else %>
-              style="color:rgba(159, 49, 250, 0.932);font-weight:bold"
-            <% end %>
-      >
-        <%= order.order_status %>
-      </span>
-    </p>
+    <%= render partial: "rating", locals: {order: order, mark_as_delivered: mark_as_delivered } %>
     <section class="order-details" id="order-details">
       <ul>
         <% order.all_menu_item_names.uniq.each do |menu_item| %>

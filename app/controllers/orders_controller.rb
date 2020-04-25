@@ -40,4 +40,12 @@ class OrdersController < ApplicationController
     ensure_owner_logged_in
     @all_orders = Order.order(:id)
   end
+
+  def rating
+    @order = Order.find(params[:id])
+    @order.ratings = params[:rating]
+    @order.save!
+    @order.order_items.rate_menu_items(params[:rating])
+    redirect_to(orders_path, notice: "Thank you for rating order with id:#{params[:id]}")
+  end
 end

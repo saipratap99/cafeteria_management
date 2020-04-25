@@ -1,0 +1,33 @@
+<p class="rating-and-status">
+  <% if mark_as_delivered %>
+    <%= link_to "Mark as Delivered", order_path(order.id), method: "patch" %>
+  <% elsif order.delivered_at.nil? %>
+    Order is being prepared
+  <% else %>
+    <% if order.ratings == 0 && order.user == @current_user %>
+      <% 5.times do |img| %>
+        <%= link_to order_rating_path(id: order.id , rating: img+1), method: :put, class:"rating" do %>
+          <%= image_tag "star.png" , id:img+1 %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <% order.ratings.times do %>
+        <%= image_tag "ratted-star.png" %>
+      <% end %>
+      <% (5-order.ratings).times do %>
+        <%= image_tag "star.png" %>
+      <% end %>
+    <% end %>
+  <%end%>
+  <span class="each-order-status"
+            <% if order.delivered_at %>
+              style="color:#11b911;font-weight:bold"
+            <% elsif order.date %>
+              style="color:#ff6000e8;font-weight:bold"
+            <% else %>
+              style="color:rgba(159, 49, 250, 0.932);font-weight:bold"
+            <% end %>
+      >
+    <%= order.order_status %>
+  </span>
+</p>

@@ -65,7 +65,15 @@ div.each-order:target{
 }
 .ordered_at > img{
   padding: 3px;
-
+}
+.rating-and-status > img{
+  padding: 3px;
+}
+.rating > img{
+  padding: 3px;
+}
+.rating > img:hover{
+  scale: 1.5;
 }
 @keyframes orderHighlight{
   0%{border: 2px solid darkred;}
