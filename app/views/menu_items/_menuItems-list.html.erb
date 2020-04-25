@@ -10,10 +10,10 @@
             <%= menu_item.name %>
             <span class="item-rating">
               <% menu_item.ratings.to_i.times do %>
-                <%= image_tag "rated-star-16" %>
+                <%= image_tag "rated-star-16.png" %>
               <% end %>
               <% (5-menu_item.ratings.to_i).times do %>
-                <%= image_tag "star-16" %>
+                <%= image_tag "star-16.png" %>
               <% end %>
             </span>
             <span class="menuItem-details">
