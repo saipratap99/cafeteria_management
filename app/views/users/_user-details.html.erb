@@ -1,36 +1,34 @@
-<section>
-  <h3> <%= heading %> </h2>
-  <table class="all-clerks">
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Orders</th>
-    </tr>
-    <% if owner %>
-      <tr>
-        <td><%= owner.id %></td>
-        <td><%= owner.name %></td>
-        <td><%= owner.email %></td>
-        <td>
-          <% owner.orders.delivered_and_confirmed.ids.each do |id| %>
-            <%= link_to id, "orders/all##{id}" %>,
-          <% end %>
-        </td>
-      </tr>
-    <% elsif roles %>
-      <% roles.each do |role| %>
-        <tr>
-          <td><%= role.id %></td>
-          <td><%= role.name %></td>
-          <td><%= role.email %></td>
-          <td>
-            <% role.orders.delivered_and_confirmed.ids.each do |id| %>
-              <%= link_to id, "orders/all##{id}" %>,
-            <% end %>
-          </td>
-        </tr>
+<h3>
+  <th colspan="4" class="table-header"><%= heading %></th>
+</h3>
+<tr>
+  <th>Id</th>
+  <th>Name</th>
+  <th>Email</th>
+  <th>Orders</th>
+</tr>
+<% if owner %>
+  <tr class="user-row" id=<%= owner.id %>>
+    <td><%= owner.id %></td>
+    <td><%= owner.name %></td>
+    <td><%= owner.email %></td>
+    <td>
+      <% owner.orders.delivered_and_confirmed.ids.each do |id| %>
+        <%= link_to id, "orders/all##{id}" %>,
       <% end %>
-    <% end %>
-  </table>
-</section>
+    </td>
+  </tr>
+<% elsif roles %>
+  <% roles.each do |role| %>
+    <tr class="user-row" id=<%= role.id %>>
+      <td><%= role.id %></td>
+      <td><%= role.name %></td>
+      <td><%= role.email %></td>
+      <td>
+        <% role.orders.delivered_and_confirmed.ids.each do |id| %>
+          <%= link_to id, "orders/all##{id}" %>,
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+<% end %>
