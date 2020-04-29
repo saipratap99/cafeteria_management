@@ -43,4 +43,8 @@ class Order < ApplicationRecord
   def all_menu_item_names
     order_items.order(:menu_item_name).map { |item| item.menu_item_name }
   end
+
+  def self.get_order_by_id(id)
+    order = all.where("id = ?", id).exists? ? find(id) : false
+  end
 end

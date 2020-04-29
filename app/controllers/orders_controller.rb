@@ -15,11 +15,15 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_user.orders.being_created
-    @order.status = "order_confirmed"
-    @order.date = Time.now + 19800
-    @order.save!
-    flash[:notice] = "Order recived! Soon your order will be delivered"
-    redirect_to menus_path
+    if @order.order_items.empty?
+      redirect_to(cart_path, alert: "Order must have atleast 1 item")
+    else
+      @order.status = "order_confirmed"
+      @order.date = Time.now + 19800
+      @order.save!
+      flash[:notice] = "Order recived! Soon your order will be delivered"
+      redirect_to menus_path
+    end
   end
 
   def update

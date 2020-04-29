@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get "/sign_in", to: "sessions#new", as: :new_session
   post "/sign_in", to: "sessions#create", as: :session
   delete "/sign_out", to: "sessions#destroy", as: :destroy_session
+  get "search", to: "search#search", as: :search
 end

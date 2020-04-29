@@ -19,11 +19,14 @@ class OrderItem < ApplicationRecord
   def self.rate_menu_items(rating)
     ids = all.map { |order_item| order_item.menu_item_id }.uniq
     ids.each do |id|
-      menu_item = MenuItem.find(id)
-      menu_item.no_of_ratings = menu_item.no_of_ratings + 1
-      menu_item.save!
-      menu_item.ratings = (menu_item.ratings.to_f + rating.to_i) / (menu_item.no_of_ratings)
-      menu_item.save!
+      if MenuItem.where("id = ?", id).exists?
+        menu_item = MenuItem.find(id)
+        menu_item.no_of_ratings = menu_item.no_of_ratings + 1
+        menu_item.save!
+        menu_item.ratings = (menu_item.ratings.to_f + rating.to_i) / (menu_item.no_of_ratings)
+        menu_item.save!
+      else
+      end
     end
   end
 end

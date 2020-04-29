@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   end
 
   def index
-    ensure_user_logged_in
     ensure_owner_logged_in
     @clerks = User.clerks
     @customers = User.customers

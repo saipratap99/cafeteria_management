@@ -20,6 +20,7 @@
   padding: 5px;
   border: 0px;
   text-align: center;
+  border-radius: 5px;
 }
 .search-box > form input[type="submit"],input[type="button"]{
   background-color: rgba(159, 49, 250, 0.932);

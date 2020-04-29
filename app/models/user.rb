@@ -20,4 +20,8 @@ class User < ApplicationRecord
   def self.customers
     where("role = ?", "customer")
   end
+
+  def self.get_user_by_email(email)
+    user = all.where("email = ?", email).exists? ? find_by(email: email) : false
+  end
 end
