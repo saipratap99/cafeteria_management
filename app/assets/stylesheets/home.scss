@@ -36,7 +36,7 @@ body{
   margin: 5px;
   padding: 5px;
 }
-.cafeteria-navbarButton > a{
+.cafeteria-navbarButton > a,.user-content > p a{
   text-decoration: none;
   color: rgba(24, 23, 23, 0.842);
   font-family: sans-serif;
@@ -96,4 +96,40 @@ body{
   padding:10px;
   border-radius: 5px;
   border: 2px solid transparent;
+}
+.dropdown{
+  position: relative;
+  display:inline-block ;
+  cursor: pointer;
+}
+.user-content{
+  display: none;
+  width: 200px;
+  top: 45px;
+  right: 10px;
+  background-color: white;
+  position: absolute;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  margin: 5px auto;
+}
+.user-content > p {
+  padding: 8px;
+}
+.dropdown:hover  > .user-content{
+  display: block;
+}
+.user-content > p a:hover{
+  color: rgba(255, 68, 0, 0.904);
+}
+.name-icon{
+  display: inline-block;
+  height: 23px;
+  width: 25px;
+  padding: 8px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #c2185b;
+  color: white;
+  margin-right: 5px;
+  font-family: monospace;
 }
