@@ -9,9 +9,9 @@
     <p class="ordered_at">
       <% if order.user.is_clerk? || order.user.is_owner? %>
         <%= image_tag "walk-in1.png" %>
-        <%= "Walk in customer" %>
+        <%= "Walk In Customer" %>
       <% else %>
-        <%= order.user.name.capitalize %>
+        <%= order.user.name.titlecase %>
       <% end %>
       <% if order.date %>
         <%= order.date.strftime("%d %B,%Y - %I:%M %p") %>

@@ -8,10 +8,19 @@
   <% if @current_user.is_owner? %>
     <div class="addItem-form" id="addItem-form">
       <%= form_with(model: @menu, url: menu_items_url, method: "post", local: true) do |form|%>
+        <p class="menus-dropdown">
+          <select name="menu_name" onchange=display_menubox(this.value)>
+            <option value="" disabled selected style="color:#7e808c">Select Menu to add</option>
+            <% Menu.order(:name).each do |menu|%>
+              <option value=<%= menu.name %>> <%= menu.name %> </option>
+            <% end %>
+            <option value="Others"> Others </option>
+          </select>
+        </p>
         <%= form.text_field :name, placeholder:"Item name" %>
         <%= form.number_field :price, placeholder:"Item price", in:1..10000 %>
         <%= form.text_field :description, placeholder:"Description of item" %>
-        <%= form.text_field :menu_name, placeholder:"Menu name" %>
+        <%= form.text_field :new_menu_name, placeholder:"Menu name", class:"add-menu-input"%>
         <%= form.submit data: { "disable-with": "Saving..." } %>
       <% end %>
     </div>

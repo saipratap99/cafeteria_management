@@ -6,6 +6,13 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script>
+      function display_menubox(val) {
+        var element = document.getElementById("new_menu_name");
+        if (val == "Others") { element.style.display = "inline"; }
+        else { element.style.display = "none"; }
+      }
+    </script>
   </head>
   <body>
     <div class="head-of-the-page">

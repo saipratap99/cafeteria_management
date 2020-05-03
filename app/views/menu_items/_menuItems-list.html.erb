@@ -2,12 +2,12 @@
   <% @menus.each do |menu| %>
     <ul class="menuItems-list">
       <h3 class="menuName" id=<%= menu.name %>>
-        <%= menu.name %>
+        <%= menu.name.titlecase %>
       </h3>
       <% menu.menu_items.order(:name).each do |menu_item| %>
         <li class="menuItem">
           <p>
-            <%= menu_item.name %>
+            <%= menu_item.name.titlecase %>
             <span class="item-rating">
               <% menu_item.ratings.to_i.times do %>
                 <%= image_tag "rated-star-16.png" %>
