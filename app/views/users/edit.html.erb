@@ -1,0 +1,23 @@
+<main class="updateUser-box">
+  <p class="signUp-login">
+    Change your password
+  </p>
+  <%= form_with url: user_path, method: :put,id: "edit_user" do |form| %>
+    <%= form.password_field :password,
+                             placeholder: "Password",
+                             autofocus:"autofocus"
+    %>
+    <br>
+    <%= form.password_field :password_confirmation,
+                             placeholder: "Conifrm new Password",
+                             autofocus: true
+    %>
+    <br>
+    <%= form.password_field :current_password,
+                             placeholder: "Current Password",
+                             autofocus: "autofocus"
+    %>
+    <br>
+    <%= form.submit "Update",class:"signUp-button" %>
+  <% end %>
+</main>

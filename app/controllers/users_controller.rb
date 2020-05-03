@@ -31,4 +31,30 @@ class UsersController < ApplicationController
       redirect_to new_user_path
     end
   end
+
+  def edit
+    unless current_user
+      redirect_to root_path
+    end
+  end
+
+  def update
+    user = current_user
+    password = params[:password]
+    password_confirmation = params[:password_confirmation]
+    current_password = params[:current_password]
+    if user.authenticate(current_password)
+      if password == password_confirmation
+        flash[:notice] = "Password updated successfully"
+        user.update!(password: password)
+        redirect_to menus_path
+      else
+        flash[:alert] = "New passwords doesnt match"
+        redirect_to edit_user_path
+      end
+    else
+      flash[:alert] = "Your current password is incorrect"
+      redirect_to edit_user_path
+    end
+  end
 end

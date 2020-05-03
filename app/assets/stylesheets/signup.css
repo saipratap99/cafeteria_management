@@ -2,7 +2,7 @@
   font-family:  sans-serif;
 }
 
-.signUpBox{
+.signUpBox,.updateUser-box{
   max-width: 500px;
   margin: 20px auto;
   border: 3px solid transparent;

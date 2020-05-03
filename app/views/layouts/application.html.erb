@@ -51,7 +51,7 @@
                 </p>
                 <p>
                   <%= image_tag "edit-26.png" %>
-                  <%= link_to "Edit Profile", destroy_session_path, method: :delete %>
+                  <%= link_to "Edit Profile", edit_user_path(id: @current_user.id) %>
                 </p>
                 <p>
                   <%= image_tag "logout.png" %>
