@@ -1,5 +1,5 @@
 @media screen and (max-width: 380px) {
-  .cafeteria-navbar{display: block;}
+  .cafeteria-navbar{display: block;width: 100%;max-width: 100%;padding-top: 1px;}
   .cafeteria-navbar{position: fixed;background-color: white;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);}
   .cafeteria-navbarHeading{font-size: 21px;}
   .cafeteria-navbarHeading > img{margin: 2px;padding: 1px;}
@@ -7,9 +7,7 @@
   .cafeteria-navbarHeading > img { transform: scale(0.8);}
   .h3{font-size: 18px;}
   .home-main{font-size: 26px;}
-  .home-main-gif img:nth-child(1){display: none;}
-  .home-main-gif img:nth-child(2){display: inline-block;transform: scale(0.5)}
-  .home-main-gif > {margin-right: auto;}
+  .home-main-gif > img{ transform: scale(0.8);width: 350px;margin-left: -70px;}
   .order-btn > a{font-size: 21px;}
   .alert,.notice,.error-msg,#error_explanation{font-size: 18px;max-width:100%}
   #error_explanation > h2{font-size: 18px;}
