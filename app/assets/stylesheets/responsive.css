@@ -1,0 +1,57 @@
+@media screen and (max-width: 380px) {
+  .cafeteria-navbar{display: block;}
+  .cafeteria-navbar{position: fixed;background-color: white;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);}
+  .cafeteria-navbarHeading{font-size: 21px;}
+  .cafeteria-navbarHeading > img{margin: 2px;padding: 1px;}
+  .cafeteria-navbarAllButtons{display: none;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);}
+  .cafeteria-navbarHeading > img { transform: scale(0.8);}
+  .h3{font-size: 18px;}
+  .home-main{font-size: 26px;}
+  .home-main-gif img:nth-child(1){display: none;}
+  .home-main-gif img:nth-child(2){display: inline-block;transform: scale(0.5)}
+  .home-main-gif > {margin-right: auto;}
+  .order-btn > a{font-size: 21px;}
+  .alert,.notice,.error-msg,#error_explanation{font-size: 18px;max-width:100%}
+  #error_explanation > h2{font-size: 18px;}
+  .container{display: inline-block;margin-left: 3px;}
+  .dropdown{display: none;}
+  .mobile{display: block;}
+  div.icons-all{padding-top: 100px;}
+
+
+  .signUpBox,.updateUser-box{width: 340px;}
+  .signUp-form input[type="text"], input[type="email"], input[type="submit"], input[type="password"] , #user_name{ max-width: 80%; }
+  .signUp-form input[type="number"]{max-width: 80%;}
+  .signUp-login{font-size: 18px;}
+
+
+  .cafeteria-menu{display: none;}
+  .cafeteria-menuItems{width: 100%;}
+  .menuItem-description{display: none;}
+  .walk-in-header{max-width: 100%;}
+  .walk-in-header > h3{font-size: 18px;}
+  .walk-in-header > img{ transform: scale(0.8);}
+  .menuItem{padding-top: 15px;margin-bottom: 5px;}
+  .menu-menuItems{max-width: 100%;}
+  .item-rating{display: block;}
+  .menu-item-name{font-size: 16px;}
+  .menuItem-price,.menu-item-name{font-size: 18px;}
+  .menu-item-name{overflow: hidden;text-overflow: ellipsis;}
+
+
+  .orders{max-width: 100%;}
+  .each-order{max-width: 95%;margin: 8px;}
+  .rate{font-size: 18px;}
+  .rate > a{font-size: 18px;}
+  .each-order-status{font-size: 13px;}
+
+
+  .cart{max-width: 100%;}
+  .cart-item-price{width: 95%;}
+  .empty-cart{font-size: 26px;}
+
+
+  .all-users{width: 100%;}
+
+
+}

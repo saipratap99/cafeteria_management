@@ -7,7 +7,9 @@
       <% menu.menu_items.order(:name).each do |menu_item| %>
         <li class="menuItem">
           <p>
-            <%= menu_item.name.titlecase %>
+            <span class="menu-item-name">
+              <%= menu_item.name.titlecase %>
+            </span>
             <span class="item-rating">
               <% menu_item.ratings.to_i.times do %>
                 <%= image_tag "rated-star-16.png" %>

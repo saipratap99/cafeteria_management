@@ -6,11 +6,20 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
       function display_menubox(val) {
         var element = document.getElementById("new_menu_name");
         if (val == "Others") { element.style.display = "inline"; }
         else { element.style.display = "none"; }
+      }
+      function myFunction(navbar) {
+        navbar.classList.toggle("change");
+        var element = document.getElementById("cafeteria-navbarAllButtons");
+        if (element.style.display=="block"){
+          element.style.display="none";
+        }
+        else{element.style.display="block";}
       }
     </script>
   </head>
@@ -19,8 +28,13 @@
       <nav class="cafeteria-navbar">
         <h2 class="cafeteria-navbarHeading">
           <%= image_tag "cooking (1).png" %>Cafeteria Management
+          <div class="container" onclick="myFunction(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
         </h2>
-        <ul class="cafeteria-navbarAllButtons">
+        <ul class="cafeteria-navbarAllButtons" id="cafeteria-navbarAllButtons">
           <% if @current_user %>
             <li class="cafeteria-navbarButton">
               <%= image_tag "home1.png" %>
@@ -59,6 +73,18 @@
                 </p>
               </div>
             </li>
+            <li class="cafeteria-navbarButton mobile">
+              <%= image_tag "orders.png" %>
+              <%= link_to "My Orders", orders_path %>
+            </li>
+            <li class="cafeteria-navbarButton mobile">
+              <%= image_tag "edit-26.png" %>
+              <%= link_to "Edit Profile", edit_user_path(id: @current_user.id) %>
+            </li>
+            <li class="cafeteria-navbarButton mobile">
+              <%= image_tag "logout.png" %>
+              <%= link_to "LogOut", destroy_session_path, method: :delete %>
+            </li>
           <% else %>
             <li class="cafeteria-navbarButton">
               <%= image_tag "sign-in.png" %>
@@ -71,8 +97,8 @@
           <% end %>
         </ul>
       </nav>
-      <div class="search-box">
-        <h3>Order everything Online</h3>
+      <div class="search-box icons-all">
+        <h3 class="h3">Order everything Online</h3>
         <section class="food-icons">
           <%= image_tag "fast-food.png" %>
           <%= image_tag "tea-cup.png" %>

@@ -1,6 +1,7 @@
 <main class="signUpBox">
   <p class="signUp-login">
     Already have an account?
+    <br>
     <%= link_to "Login here", new_session_path, class:"login-link" %>
   </p>
   <%= form_with url: users_path, class: "signUp-form" do |form| %>
