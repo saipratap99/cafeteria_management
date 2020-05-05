@@ -4,6 +4,7 @@
     <title>CafteriaManagement</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="theme-color" content="#a13cf9" />
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +14,9 @@
         if (val == "Others") { element.style.display = "inline"; }
         else { element.style.display = "none"; }
       }
-      function myFunction(navbar) {
+      function myFunction(navbar,id_name) {
         navbar.classList.toggle("change");
-        var element = document.getElementById("cafeteria-navbarAllButtons");
+        var element = document.getElementById(id_name);
         if (element.style.display=="block"){
           element.style.display="none";
         }
@@ -28,7 +29,7 @@
       <nav class="cafeteria-navbar">
         <h2 class="cafeteria-navbarHeading">
           <%= image_tag "cooking (1).png" %>Cafeteria Management
-          <div class="container" onclick="myFunction(this)">
+          <div class="container" onclick="myFunction(this,'cafeteria-navbarAllButtons')">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>

@@ -5,23 +5,27 @@
   .cafeteria-navbarHeading > img{margin: 2px;padding: 1px;}
   .cafeteria-navbarAllButtons{display: none;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);}
   .cafeteria-navbarHeading > img { transform: scale(0.8);}
-  .h3{font-size: 18px;}
+  .h3{font-size: 21px}
   .home-main{font-size: 26px;}
   .home-main-gif > img{ transform: scale(0.8);width: 350px;margin-left: -70px;}
   .order-btn > a{font-size: 21px;}
   .alert,.notice,.error-msg,#error_explanation{font-size: 18px;max-width:100%}
   #error_explanation > h2{font-size: 18px;}
-  .container{display: inline-block;margin-left: 3px;}
+  .container{display: inline-block;padding-left: 5px;}
   .dropdown{display: none;}
   .mobile{display: block;}
   div.icons-all{padding-top: 100px;}
+  .food-icons > img{max-width: 50px;}
 
+  /* signUp,SignIn & Update */
 
-  .signUpBox,.updateUser-box{width: 340px;}
-  .signUp-form input[type="text"], input[type="email"], input[type="submit"], input[type="password"] , #user_name{ max-width: 80%; }
+  .signUpBox,.updateUser-box{width: 92%;}
+  .signUp-form input[type="text"], input[type="email"], input[type="submit"], input[type="password"] , #user_name{ max-width: 85%; }
   .signUp-form input[type="number"]{max-width: 80%;}
   .signUp-login{font-size: 18px;}
+  .signUp-login > a{font-size: 18px;}
 
+   /* Menus & MenuItems */
 
   .cafeteria-menu{display: none;}
   .cafeteria-menuItems{width: 100%;}
@@ -35,7 +39,11 @@
   .menu-item-name{font-size: 16px;}
   .menuItem-price,.menu-item-name{font-size: 18px;}
   .menu-item-name{overflow: hidden;text-overflow: ellipsis;}
+  .orderItem-add{border-radius: 5px;font-size: 18px;}
+  .orderItem-add > a{font-size: 18px;}
+  .menuName{font-size: 24px;}
 
+  /* Orders */
 
   .orders{max-width: 100%;}
   .each-order{max-width: 95%;margin: 8px;}
@@ -43,13 +51,51 @@
   .rate > a{font-size: 18px;}
   .each-order-status{font-size: 13px;}
 
+  /* Cart */
 
   .cart{max-width: 100%;}
   .cart-item-price{width: 95%;}
   .empty-cart{font-size: 26px;}
+  .qty-price{font-size: 18px;}
+  .cartItem-add{border-radius: 5px;font-size: 18px;}
+  .cartItem-add > a{font-size: 18px;}
 
+  /* Users */
 
   .all-users{width: 100%;}
+
+  /* Menu list */
+
+  .cafeteria-menu{
+    position: fixed;
+    bottom: 50px;
+    display: none;
+    width: 70%;
+    border: 20px;
+    margin: 5px auto;
+    background-color: white;
+    left: 50%;
+    transform: translate(-50%);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  .menu > a{margin: 5px auto;color: rgb(29, 28, 28);font-size: 21px;}
+  .menuButton{
+    width:120px;
+    background-color: rgba(159, 49, 250, 0.932);
+    color: white;
+    font-family: sans-serif;
+    padding: 8px;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    bottom: 5px;
+    border-radius: 8px;
+    margin-left: auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
+  .menuButton > img { padding: 0px 8px;}
 
 
 }
