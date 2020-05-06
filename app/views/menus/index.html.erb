@@ -16,3 +16,13 @@
   <%= image_tag "plate.png" %>
   Menus
 </div>
+<% if @order %>
+  <% if @order.order_items.any? %>
+    <div class="cart-bottom">
+      <span class="cart-bottom-items"> <%= @order.order_items.count %> item(s)</span>
+      <span class="cart-bottom-price"> ₹<%= @order.total_price %></span>
+      <span class="cart-bottom-button"> <%= link_to "View Cart", cart_path %>
+      </span>
+    </div>
+  <% end %>
+<% end %>

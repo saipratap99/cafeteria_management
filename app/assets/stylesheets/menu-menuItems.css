@@ -134,6 +134,32 @@ h3.menuName:target{
 .add-menu-input{
   display: none;
 }
+.cart-bottom{
+  display: none;
+  background-color: #62da3d;
+  color: white;
+  font-family: sans-serif;
+  padding: 5px;
+  width: 100%;
+}
+.cart-bottom-button > a{
+  color: white;
+  padding: 5px;
+  margin-right: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.cart-bottom-price{
+  border-left: 2px solid white;
+  padding-left: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.cart-bottom-items{
+  margin-right: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
 
 @keyframes menuHighlight{
   0%{background-color: #a13cf9;color: white;}
