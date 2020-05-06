@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
       @order.status = "order_confirmed"
       @order.date = Time.now + 19800
       @order.save!
+      OrderMailer.with(order: @order, user: current_user).order_confirmation.deliver_now
       flash[:notice] = "Order recived! Soon your order will be delivered"
       redirect_to menus_path
     end
@@ -32,6 +33,8 @@ class OrdersController < ApplicationController
     @order.status = "order_delivered"
     @order.delivered_at = Time.now + 19800
     @order.save!
+    OrderMailer.with(order: @order, user: current_user).order_delivered.deliver_now
+    OrderMailer.with(order: @order).new_order_placed.deliver_now
     flash[:notice] = "#{@order.id} is marked as delivered!"
     redirect_to "/pending_orders"
   end

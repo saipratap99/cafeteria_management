@@ -1,7 +1,7 @@
 <p class="rating-and-status">
   <p class="rate">
     <% if mark_as_delivered %>
-      <%= link_to "Mark as Delivered", order_path(order.id), method: "patch" %>
+      <%= link_to "Mark as Delivered", order_path(order.id), method: "patch",data: { "disable-with": "Please wait..." } %>
     <% elsif order.delivered_at.nil? %>
       Order is being prepared
     <% else %>

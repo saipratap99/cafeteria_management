@@ -136,7 +136,7 @@ h3.menuName:target{
 }
 .cart-bottom{
   display: none;
-  background-color: #62da3d;
+  background-color: rgb(49, 197, 49);
   color: white;
   font-family: sans-serif;
   padding: 5px;

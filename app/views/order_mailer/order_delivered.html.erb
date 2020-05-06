@@ -1,0 +1,18 @@
+<h2>Order delivered!</h2>
+<h3>Hello <span style="color:rgba(159, 49, 250, 0.932)"><%= @user.name %></span> your order with id: <span style="color:rgba(159, 49, 250, 0.932)"><%= @order.id %></span> is delivered.</h3>
+<p>
+  We have delivered your order with id <%= @order.id %> at <span style="color:#11b911;font-weight:bold"><%= @order.delivered_at.strftime("%d %B,%Y - %I:%M %p") %></span>
+  <p>
+    Order is placed at <span style="color:#ff6000e8;font-weight:bold"><%= @order.date.strftime("%d %B,%Y - %I:%M %p") %></span>
+  </p>
+</p>
+<p>
+  For more details of your order please click on the button and
+  <span style="color:rgba(159, 49, 250, 0.932)">Rate the order</span>
+</p>
+<p style="background-color:rgba(255, 68, 0, 0.904);width:150px;text-align:center;border-radius:5px;padding:8px">
+  <a href="cafeteria-management-saas-t15.herokuapp.com/orders" style="color:white;text-decoration:none;padding:8px">Order details!</a>
+</p>
+<p>Keep ordering online!</p>
+<p>Have a great day!</p>
+<p>Thank you!</p>
