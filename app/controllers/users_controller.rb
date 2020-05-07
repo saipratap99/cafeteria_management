@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_action :ensure_user_logged_in
+  skip_before_action :ensure_user_logged_in, only: [:create, :new]
+  before_action :ensure_owner_logged_in, only: [:index]
 
   def new
     if current_user
@@ -9,9 +10,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    ensure_owner_logged_in
-    @clerks = User.clerks
-    @customers = User.customers
+    @clerks = User.clerks.order(:id)
+    @customers = User.customers.order(:id)
   end
 
   def create
@@ -34,9 +34,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    unless current_user
-      redirect_to root_path
-    end
   end
 
   def update

@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   # created by cmd
   # rails generate controller Orders
+  before_action :ensure_owner_logged_in, only: [:all_orders]
+  before_action :ensure_owner_or_clerk_logged_in, only: [:pending_orders, :update]
 
   def index
     orders = current_user.orders.order(:id)
@@ -10,7 +12,6 @@ class OrdersController < ApplicationController
   end
 
   def pending_orders
-    ensure_owner_or_clerk_logged_in
   end
 
   def create
@@ -28,7 +29,6 @@ class OrdersController < ApplicationController
   end
 
   def update
-    ensure_owner_or_clerk_logged_in
     @order = Order.find(params[:id])
     @order.status = "order_delivered"
     @order.delivered_at = Time.now + 19800
@@ -44,7 +44,6 @@ class OrdersController < ApplicationController
   end
 
   def all_orders
-    ensure_owner_logged_in
     @all_orders = Order.order(id: :desc)
   end
 

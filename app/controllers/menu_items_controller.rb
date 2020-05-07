@@ -1,6 +1,7 @@
 class MenuItemsController < ApplicationController
   # created by cmd
   # rails generate controller MenuItems
+  before_action :ensure_owner_logged_in, only: [:create, :destroy, :edit, :update]
 
   def index
   end
