@@ -1,6 +1,7 @@
 class MenusController < ApplicationController
   # created by cmd
   # rails generate controller Menus
+  before_action :ensure_owner_logged_in, only: [:destroy]
 
   def index
     @menus = Menu.order(:name)
@@ -10,15 +11,9 @@ class MenusController < ApplicationController
   def show
   end
 
-  def create
-    menu = Menu.create!(name: params[:name].capitalize)
-    render plain: "created #{menu.name} with #{menu.id}"
-  end
-
   def destroy
-    ensure_owner_logged_in
     menu = Menu.find(params[:id])
     menu.destroy
-    redirect_to menus_path
+    redirect_to(menus_path, notice: "#{menu.name} menu is deleted successfully!")
   end
 end
