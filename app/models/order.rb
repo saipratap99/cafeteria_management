@@ -4,10 +4,6 @@ class Order < ApplicationRecord
   has_many :order_items
   belongs_to :user
 
-  def to_a_string
-    "#{id} #{date} ITEMS:#{order_items.map { |item| item.menu_item_name }.join("--")} TOTAL PRICE:#{total_price} STATUS:++#{status} #{delivered_at}"
-  end
-
   def self.delivered_and_confirmed
     where.not("status = ? ", "being_created")
   end

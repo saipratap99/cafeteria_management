@@ -10,12 +10,14 @@ class MenuItemsController < ApplicationController
   end
 
   def create
-    menu = params[:menu_name] == "Others" ? Menu.new(name: params[:new_menu_name].capitalize) : Menu.find_by(name: params[:menu_name].capitalize)
+    menu = Menu.check_menu_exists_create_if_not(params[:menu_name], params[:new_menu_name])
     menu.save
-    menu_item = MenuItem.new(name: params[:name].capitalize, description: params[:description].capitalize, menu_id: menu.id, price: params[:price])
+    menu_item = MenuItem.new(name: params[:name].capitalize,
+                             description: params[:description].capitalize,
+                             menu_id: menu.id,
+                             price: params[:price])
     if menu.save && menu_item.save
-      flash[:notice] = "Item added successfully!"
-      redirect_to menus_path
+      redirect_to(menus_path, notice: "#{menu_item.name} item added successfully!")
     else
       flash[:error] = menu_item.errors.full_messages + menu.errors.full_messages
       redirect_to menus_path
@@ -24,8 +26,9 @@ class MenuItemsController < ApplicationController
 
   def destroy
     ensure_owner_logged_in
-    MenuItem.find(params[:id]).destroy
-    redirect_to menus_path
+    menu_item = MenuItem.find(params[:id])
+    menu_item.destroy!
+    redirect_to(menus_path, notice: "#{menu_item.name} menu item is deleted!")
   end
 
   def edit
@@ -34,13 +37,15 @@ class MenuItemsController < ApplicationController
   end
 
   def update
-    menu = Menu.where(name: params[:menu_name].capitalize).exists? ? Menu.where(name: params[:menu_name].capitalize).first : Menu.new(name: params[:menu_name].capitalize)
+    menu = Menu.check_menu_exists_create_if_not(params[:menu_name], params[:new_menu_name])
     menu.save
     menu_item = MenuItem.find(params[:id])
-    menu_item.update(name: params[:name].capitalize, description: params[:description].capitalize, menu_id: menu.id, price: params[:price])
+    menu_item.update(name: params[:name].capitalize,
+                     description: params[:description].capitalize,
+                     menu_id: menu.id,
+                     price: params[:price])
     if menu.save && menu_item.save
-      flash[:notice] = "Item updated successfully!"
-      redirect_to menus_path
+      redirect_to(menus_path, notice: "#{menu_item.name} item updated successfully!")
     else
       flash[:error] = menu_item.errors.full_messages + menu.errors.full_messages
       redirect_to edit_menu_item_path

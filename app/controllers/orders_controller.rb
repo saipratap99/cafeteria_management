@@ -23,8 +23,7 @@ class OrdersController < ApplicationController
       @order.date = Time.now + 19800
       @order.save!
       OrderMailer.with(order: @order, user: current_user).order_confirmation.deliver_now
-      flash[:notice] = "Order recived! Soon your order will be delivered"
-      redirect_to menus_path
+      redirect_to(menus_path, notice: "Order recived! Soon your order will be delivered")
     end
   end
 
@@ -35,8 +34,7 @@ class OrdersController < ApplicationController
     @order.save!
     OrderMailer.with(order: @order, user: @order.user).order_delivered.deliver_now
     OrderMailer.with(order: @order).new_order_placed.deliver_now
-    flash[:notice] = "#{@order.id} is marked as delivered!"
-    redirect_to "/pending_orders"
+    redirect_to("/pending_orders", notice: "#{@order.id} is marked as delivered!")
   end
 
   def cart
