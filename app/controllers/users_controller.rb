@@ -4,8 +4,7 @@ class UsersController < ApplicationController
 
   def new
     if current_user
-      flash[:notice] = "Your'e already signed up user"
-      redirect_to menus_path
+      redirect_to(menus_path, notice: "Your'e already signed up user")
     end
   end
 
@@ -15,21 +14,20 @@ class UsersController < ApplicationController
   end
 
   def create
-    name = params[:name]
-    email = params[:email]
+    name, email = params[:name], params[:email]
     password = params[:password]
     password_confirmation = params[:password_confirmation]
-
-    user = User.new(name: name.capitalize, email: email, role: "customer", password: password, password_confirmation: password_confirmation)
+    user = User.new(name: name.capitalize,
+                    email: email,
+                    role: "customer",
+                    password: password,
+                    password_confirmation: password_confirmation)
     if user.save
-      user.save!
       OrderMailer.with(user: user).welcome_user.deliver_now
-      flash[:notice] = "Welcome #{user.name}!"
       session[:current_user_id] = user.id
-      redirect_to menus_path
+      redirect_to(menus_path, notice: "Welcome #{user.name}!")
     else
-      flash[:error] = user.errors.full_messages
-      redirect_to new_user_path
+      redirect_to(new_user_path, error: user.errors.full_messages)
     end
   end
 
@@ -37,22 +35,18 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = current_user
-    password = params[:password]
+    user, password = current_user, params[:password]
     password_confirmation = params[:password_confirmation]
     current_password = params[:current_password]
     if user.authenticate(current_password)
       if password == password_confirmation
-        flash[:notice] = "Password updated successfully"
         user.update!(password: password)
-        redirect_to menus_path
+        redirect_to(menus_path, notice: "Password updated successfully")
       else
-        flash[:alert] = "New passwords doesnt match"
-        redirect_to edit_user_path
+        redirect_to(edit_user_path, alert: "New passwords doesnt match")
       end
     else
-      flash[:alert] = "Your current password is incorrect"
-      redirect_to edit_user_path
+      redirect_to(edit_user_path, alert: "Your current password is incorrect")
     end
   end
 end

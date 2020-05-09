@@ -4,12 +4,14 @@
     width: 100%;
     max-width: 100%;
     padding-top: 1px;
+    background-color: white;
   }
   .cafeteria-navbar{
     background-color: white;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   }
   .cafeteria-navbarHeading{font-size: 21px;}
+
   .cafeteria-navbarHeading > img{
     margin: 2px;
     padding: 1px;
@@ -17,6 +19,8 @@
   .cafeteria-navbarAllButtons{
     display: none;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    overflow: hidden;
+    animation: toggle 2s;
   }
   .cafeteria-navbarHeading > img { transform: scale(0.8);}
   .h3{font-size: 21px}
@@ -29,7 +33,7 @@
   .order-btn > a{font-size: 21px;}
   .alert,.notice,.error-msg,#error_explanation{
     font-size: 18px;
-    max-width:100%;
+    max-width: 90%;
   }
   #error_explanation > h2{font-size: 18px;}
   .container{
@@ -50,7 +54,10 @@
 
    /* Menus & MenuItems */
 
-  .cafeteria-menu{display: none;}
+  .cafeteria-menu{
+    display: none;
+    animation: toggle 2s;
+  }
   .cafeteria-menuItems{width: 100%;}
   .menuItem-description{display: none;}
   .walk-in-header{max-width: 100%;}
@@ -155,4 +162,9 @@
     align-items: center;
   }
   .cart-bottom-button{margin-left: auto;}
+}
+
+@keyframes toggle{
+  0%{height: 0px;}
+  100%{height: 320px;}
 }
