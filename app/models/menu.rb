@@ -7,6 +7,6 @@ class Menu < ApplicationRecord
   def self.check_menu_exists_create_if_not(menu_name, new_menu_name)
     menu_name == "Others" ?
       Menu.new(name: new_menu_name.capitalize) :
-      find_by(name: menu_name.capitalize)
+      find(menu_name)
   end
 end

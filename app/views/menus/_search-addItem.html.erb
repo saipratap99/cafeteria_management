@@ -12,7 +12,7 @@
           <select name="menu_name" onchange=display_menubox(this.value)>
             <option value="" disabled selected style="color:#7e808c">Select Menu to add</option>
             <% Menu.order(:name).each do |menu|%>
-              <option value=<%= menu.name %>> <%= menu.name %> </option>
+              <option value=<%= menu.id %>> <%= menu.name %> </option>
             <% end %>
             <option value="Others"> Others </option>
           </select>

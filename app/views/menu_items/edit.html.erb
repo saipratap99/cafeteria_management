@@ -21,9 +21,22 @@
                          placeholder: "Description"
     %>
     <br>
-    <%= form.text_field :menu_name,
-                        value: @menu_item.menu.name,
-                        placeholder: "Menu Name"
+    <p class="menus-dropdown-edit">
+      <select name="menu_name" onchange=display_menubox(this.value)>
+        <option value="" disabled selected style="color:#7e808c">Select Menu to add</option>
+        <% Menu.order(:name).each do |menu|%>
+          <option value=<%= menu.id %>
+          <%= @menu_item.menu.id == menu.id ? "selected" : nil %>
+          >
+            <%= menu.name %>
+          </option>
+        <% end %>
+        <option value="Others"> Others </option>
+      </select>
+    </p>
+    <br>
+    <%= form.text_field :new_menu_name,
+                        placeholder: "New Menu Name"
     %>
     <br>
     <%= form.submit "Update", data: { "disable-with": "Updating..." }, class: "signUp-button"%>

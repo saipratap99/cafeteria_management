@@ -123,13 +123,26 @@ h3.menuName:target{
 .menus-dropdown{
   padding: 8px;
 }
-.menus-dropdown > select{
+.menus-dropdown > select,.menus-dropdown-edit  > select{
   border: 0px;
   background-color: white;
   font-size: 21px;
   border-radius: 5px;
   padding: 5px;
   width: 310px;
+}
+.menus-dropdown-edit  > select{
+  border: 2px solid rgb(65, 113, 216);
+  border-radius: 10px;
+  width: 400px;
+  text-align: center;
+  font-size: 25px;
+  display: block;
+  margin: 5px auto;
+}
+
+.signUp-form #new_menu_name{
+  display: none;
 }
 .add-menu-input{
   display: none;
