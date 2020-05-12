@@ -17,18 +17,18 @@ require("jquery")
 // const imagePath = (name) => images(name, true)
 $(document).ready(function () {
 
-  $(".cafeteria-navbarHeading > .container").click(
+  $(document).on("click", ".cafeteria-navbarHeading > .container",
     function () {
       $(this).toggleClass("change")
-      $(".cafeteria-navbarAllButtons").toggle(500);
+      $(".cafeteria-navbarAllButtons").toggle(300);
     }
   );
 
-  $(".menuButton").click(function () {
-    $(".cafeteria-menu").toggle(500);
+  $(document).on("click", ".menuButton", function () {
+    $(".cafeteria-menu").toggle(300);
   });
 
-  $("#menu-name").change(function () {
+  $(document).on("change", "#menu-name", function () {
     if ($(this).val() == "Others") {
       $("#new_menu_name").show(300, function () {
         $(".new-menu-name-edit").css({ "display": "block" });
