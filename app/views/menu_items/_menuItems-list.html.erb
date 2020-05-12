@@ -1,7 +1,7 @@
 <div class="cafeteria-menuItems">
   <% @menus.each do |menu| %>
     <ul class="menuItems-list">
-      <h3 class="menuName" id=<%= menu.name %>>
+      <h3 class="menuName" id=<%= menu.id %>>
         <%= menu.name.titlecase %>
       </h3>
       <% menu.menu_items.order(:name).each do |menu_item| %>

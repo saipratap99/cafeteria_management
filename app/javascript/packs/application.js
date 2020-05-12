@@ -39,4 +39,12 @@ $(document).ready(function () {
     }
   });
 
+  $(document).on("click", "#menuName", function () {
+    id = $(this).attr("class");
+    position = $("#" + id).position();
+    $("html").animate({ scrollTop: position.top }, 500);
+    if ($(window).innerWidth() < 800) {
+      $(".cafeteria-menu").hide(300);
+    }
+  });
 });
