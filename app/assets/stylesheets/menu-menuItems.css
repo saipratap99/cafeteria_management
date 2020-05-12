@@ -71,6 +71,7 @@ h3.menuName:target{
 
   .orderItem-add{
    border: 1px solid #a13cf9;
+   border-radius: 5px;
    color: #a13cf9;
    padding: 8px;
   }

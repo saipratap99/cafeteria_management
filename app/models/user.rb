@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :orders
   validates :name, presence: true, length: { in: 3..50 }
   validates :email, presence: true, uniqueness: true
-  validates :password, length: { in: 4..25 }
+  #validates :password, length: { in: 4..25 }
 
   def is_clerk?
     clerk = role == "clerk" ? true : false
@@ -23,5 +23,14 @@ class User < ApplicationRecord
 
   def self.get_user_by_email(email)
     user = all.where("email = ?", email).exists? ? find_by(email: email) : false
+  end
+
+  def alter_role
+    if role == "customer"
+      self.role = "clerk"
+    else
+      self.role = "customer"
+    end
+    save!
   end
 end

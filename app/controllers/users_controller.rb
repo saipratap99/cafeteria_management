@@ -49,4 +49,10 @@ class UsersController < ApplicationController
       redirect_to(edit_user_path, alert: "Your current password is incorrect")
     end
   end
+
+  def change_role
+    @user = User.find(params[:id])
+    @user.alter_role
+    redirect_to(users_path, notice: "#{@user.name} role is changed to #{@user.role} ")
+  end
 end

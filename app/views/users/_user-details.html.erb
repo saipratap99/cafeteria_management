@@ -1,11 +1,12 @@
 <h3>
-  <th colspan="4" class="table-header"><%= heading %></th>
+  <th colspan="5" class="table-header"><%= heading %></th>
 </h3>
 <tr>
   <th>Id</th>
   <th>Name</th>
   <th>Email</th>
   <th>Orders</th>
+  <th>Action</th>
 </tr>
 <% if owner %>
   <tr class="user-row" id=<%= owner.id %>>
@@ -17,6 +18,7 @@
         <%= link_to id, "orders/all##{id}" %>,
       <% end %>
     </td>
+    <td>No Action</td>
   </tr>
 <% elsif roles %>
   <% roles.each do |role| %>
@@ -27,6 +29,21 @@
       <td>
         <% role.orders.delivered_and_confirmed.ids.each do |id| %>
           <%= link_to id, "orders/all##{id}" %>,
+        <% end %>
+      </td>
+      <td>
+        <% if role.role == "customer" %>
+          <%= link_to "Make as clerk",
+                      change_role_path(role.id),
+                      method: :patch,
+                      data: {confirm: "Are you sure?",disable: "Please wait.."}
+          %>
+        <% else %>
+          <%= link_to "Remove as clerk",
+                      change_role_path(role.id),
+                      method: :patch,
+                      data: {confirm: "Are you sure?",disable: "Please wait.."}
+          %>
         <% end %>
       </td>
     </tr>

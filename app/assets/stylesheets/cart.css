@@ -66,6 +66,7 @@
 .cartItem-add{
   padding: 5px;
   border: 1px dotted #a13cf9;
+  border-radius: 5px;
   font-size: 18px;
   margin-right: 10px;
   color: #a13cf9;

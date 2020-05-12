@@ -5,7 +5,8 @@
   <%= form_with url: user_path, method: :put,id: "edit_user" do |form| %>
     <%= form.password_field :password,
                              placeholder: "Password",
-                             autofocus:"autofocus"
+                             autofocus:"autofocus",
+                             minlength: 4
     %>
     <br>
     <%= form.password_field :password_confirmation,

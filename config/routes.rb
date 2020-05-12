@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   post "/sign_in", to: "sessions#create", as: :session
   delete "/sign_out", to: "sessions#destroy", as: :destroy_session
   get "search", to: "search#search", as: :search
+  patch "/users/:id/change_role", to: "users#change_role", as: :change_role
 end
