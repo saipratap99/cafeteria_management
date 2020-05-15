@@ -1,0 +1,2 @@
+$("#<%= @order.id%>").fadeOut(800);
+$(".all-messages").html("<%= j (render partial: 'home/messages', locals: {notice: "#{@order.id} is marked as delivered!" }) %>").hide().fadeIn(800);

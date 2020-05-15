@@ -34,7 +34,10 @@ class OrdersController < ApplicationController
     @order.save!
     OrderMailer.with(order: @order, user: @order.user).order_delivered.deliver_now
     OrderMailer.with(order: @order).new_order_placed.deliver_now
-    redirect_to("/pending_orders", notice: "#{@order.id} is marked as delivered!")
+    respond_to do |format|
+      format.html { redirect_to("/pending_orders", notice: "#{@order.id} is marked as delivered!") }
+      format.js
+    end
   end
 
   def cart
@@ -50,6 +53,9 @@ class OrdersController < ApplicationController
     @order.ratings = params[:rating]
     @order.save!
     @order.order_items.rate_menu_items(params[:rating])
-    redirect_to(orders_path, notice: "Thank you for rating order with id:#{params[:id]}")
+    respond_to do |format|
+      format.html { redirect_to(orders_path, notice: "Thank you for rating order with id:#{@order.id}") }
+      format.js
+    end
   end
 end

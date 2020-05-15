@@ -17,7 +17,20 @@
         <%= formated_time(order.date) %>
       <% end %>
     </p>
-    <%= render partial: "rating", locals: {order: order, mark_as_delivered: mark_as_delivered } %>
+    <p class="rating-and-status">
+      <%= render partial: "rating", locals: {order: order, mark_as_delivered: mark_as_delivered } %>
+      <p class="each-order-status"
+            <% if order.delivered_at %>
+              style="color:#11b911;font-weight:bold"
+            <% elsif order.date %>
+              style="color:#ff6000e8;font-weight:bold"
+            <% else %>
+              style="color:rgba(159, 49, 250, 0.932);font-weight:bold"
+            <% end %>
+  >
+        <%= order.order_status %>
+      </p>
+    </p>
     <section class="order-details" id="order-details">
       <ul>
         <% order.all_menu_item_names.uniq.each do |menu_item| %>

@@ -1,0 +1,2 @@
+$("#order-<%= @order.id%>").html("<%= j (render partial: 'rating', locals: { order: @order, mark_as_delivered: false }) %>").hide().fadeIn(800);
+$(".all-messages").html("<%= j (render partial: 'home/messages', locals: {notice: "Thank you for rating order with id:#{@order.id}" }) %>").hide().fadeIn(800);
