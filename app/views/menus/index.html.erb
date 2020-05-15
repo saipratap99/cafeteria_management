@@ -9,8 +9,8 @@
   </div>
 <% end %>
 <div class="menu-menuItems">
-  <%= render partial: "menuList" %>
-  <%= render partial: "menu_items/menuItems-list" %>
+  <%= render partial: "menuList",locals: { menus: @menus} %>
+  <%= render partial: "menu_items/menuItems-list", locals: { menus: @menus, order: @order } %>
 </div>
 <div class="menuButton">
   <%= image_tag "plate.png" %>

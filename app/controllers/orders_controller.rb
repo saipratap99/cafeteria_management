@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
       redirect_to(cart_path, alert: "Order must have atleast 1 item")
     else
       @order.status = "order_confirmed"
-      @order.date = Time.now + 19800
+      @order.date = Time.now
       @order.save!
       OrderMailer.with(order: @order, user: current_user).order_confirmation.deliver_now
       redirect_to(menus_path, notice: "Order recived! Soon your order will be delivered")
@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.status = "order_delivered"
-    @order.delivered_at = Time.now + 19800
+    @order.delivered_at = Time.now
     @order.save!
     OrderMailer.with(order: @order, user: @order.user).order_delivered.deliver_now
     OrderMailer.with(order: @order).new_order_placed.deliver_now

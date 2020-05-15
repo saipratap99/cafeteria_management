@@ -94,24 +94,7 @@
         <%= yield :head %>
         <%= yield :search %>
       </div>
-      <% if notice %>
-        <p class="notice"><%= notice %></p>
-      <%end%>
-      <% if flash.alert %>
-        <p class="alert"><%= alert %></p>
-      <%end%>
-      <% if flash[:error] %>
-        <div id="error_explanation">
-          <h2>
-            <%= pluralize(flash[:error].count, "error") %> prohibited this FORM being saved:
-          </h2>
-          <ul>
-            <% flash[:error].each_with_index do |msg,index| %>
-              <li class="error-msg"><%= "#{index + 1}.#{msg}" %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+      <%= render partial: "home/messages" %>
     </div>
     <div class="content">
       <%= yield %>
