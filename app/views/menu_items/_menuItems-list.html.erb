@@ -1,11 +1,11 @@
 <div class="cafeteria-menuItems">
   <% menus.each do |menu| %>
-    <ul class="menuItems-list">
+    <ul class="menuItems-list" id=<%= "menuList-#{menu.id}" %>>
       <h3 class="menuName" id=<%= menu.id %>>
         <%= menu.name.titlecase %>
       </h3>
       <% menu.menu_items.order(:name).each do |menu_item| %>
-        <li class="menuItem">
+        <li class="menuItem" id=<%= "item-#{menu_item.id}" %>>
           <p>
             <span class="menu-item-name">
               <%= menu_item.name.titlecase %>
@@ -31,39 +31,43 @@
                 <%= link_to edit_menu_item_path(id: menu_item.id) do %>
                   <%= image_tag "edit-26.png", class: "TodoSection-todoDelete" %>
                 <% end %>
-                <%= link_to menu_item, method: :delete, data: {confirm: 'Are you sure?'} do %>
-                  <%= image_tag "trash.png" %>
-                <% end %>
-              </p>
-            <% end %>
-            <p class="orderItem-add">
-              <% if order %>
-                <% if order.order_items.get_order_item(menu_item.id).exists? %>
-                  <%= link_to "-",
-                              order_item_path(id: order.order_item(menu_item.name).id),
-                              {:method => :delete}
-                  %>
-                  <%= order.order_items.get_order_item(menu_item.id).count %>
-                  <%= link_to "+",
-                              order_items_path(menu_item_id: menu_item.id ),
-                              {:method => :post}
-                  %>
-                <% else %>
-                  <%=link_to "Add +",
-                             order_items_path(menu_item_id: menu_item.id ),
-                             {:method => :post}
-                  %>
-                <% end %>
-              <% else %>
-                <%= link_to "Add +",
-                            order_items_path(menu_item_id: menu_item.id ),
-                            {:method => :post}
+                <%= link_to menu_item,
+                            method: :delete,
+                            data: {confirm: 'Are you sure?'},
+                            remote: true do
                 %>
+                <%= image_tag "trash.png" %>
               <% end %>
             </p>
+          <% end %>
+          <p class="orderItem-add">
+            <% if order %>
+              <% if order.order_items.get_order_item(menu_item.id).exists? %>
+                <%= link_to "-",
+                              order_item_path(id: order.order_item(menu_item.name).id),
+                              {:method => :delete, remote: true}
+                  %>
+                <%= order.order_items.get_order_item(menu_item.id).count %>
+                <%= link_to "+",
+                              order_items_path(menu_item_id: menu_item.id ),
+                              {:method => :post, remote: true}
+                  %>
+              <% else %>
+                <%=link_to "Add +",
+                             order_items_path(menu_item_id: menu_item.id ),
+                             {:method => :post, remote: true}
+                  %>
+              <% end %>
+            <% else %>
+              <%= link_to "Add +",
+                            order_items_path(menu_item_id: menu_item.id ),
+                            {:method => :post, remote: true}
+                %>
+            <% end %>
           </p>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 </div>

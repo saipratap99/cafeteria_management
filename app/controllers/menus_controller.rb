@@ -12,8 +12,11 @@ class MenusController < ApplicationController
   end
 
   def destroy
-    menu = Menu.find(params[:id])
-    menu.destroy
-    redirect_to(menus_path, notice: "#{menu.name} menu is deleted successfully!")
+    @menu = Menu.find(params[:id])
+    @menu.destroy!
+    respond_to do |format|
+      format.html { redirect_to(menus_path, notice: "#{@menu.name} menu is deleted successfully!") }
+      format.js
+    end
   end
 end

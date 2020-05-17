@@ -1,16 +1,20 @@
 <div class="cafeteria-menu" id="cafeteria-menu">
   <ul>
     <% menus.each do |menu| %>
-      <li class="menu">
+      <li class="menu" id=<%= "menu-#{menu.id}" %>>
         <% if @current_user.is_owner? %>
           <span class="menuItem-delete">
-            <%= link_to menu, method: :delete, data: {confirm: 'Are you sure?'} do %>
-              <%= image_tag "trash.png" %>
-            <% end %>
-          </span>
-        <% end %>
-        <a class=<%= menu.id %> id="menuName"><%= menu.name.titlecase %></a>
-      </li>
-    <% end %>
-  </ul>
+            <%= link_to menu,
+                        method: :delete,
+                        data: {confirm: 'Are you sure?'},
+                        remote: true do
+            %>
+            <%= image_tag "trash.png" %>
+          <% end %>
+        </span>
+      <% end %>
+      <a class=<%= menu.id %> id="menuName"><%= menu.name.titlecase %></a>
+    </li>
+  <% end %>
+</ul>
 </div>

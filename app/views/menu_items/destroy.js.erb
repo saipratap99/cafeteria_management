@@ -1,0 +1,2 @@
+$("#item-<%= @menu_item.id %>").hide(500);
+$(".all-messages").html("<%= j (render partial: 'home/messages', locals: {notice: "#{@menu_item.name} menu item is deleted!" }) %>")

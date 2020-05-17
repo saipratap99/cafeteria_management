@@ -21,8 +21,8 @@ $(document).ready(function () {
     function () {
       $(this).toggleClass("change")
       $(".cafeteria-navbarAllButtons").toggle(300);
-    }
-  );
+
+    });
 
   $(document).on("click", ".menuButton", function () {
     $(".cafeteria-menu").toggle(300);

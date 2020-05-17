@@ -26,9 +26,12 @@ class MenuItemsController < ApplicationController
 
   def destroy
     ensure_owner_logged_in
-    menu_item = MenuItem.find(params[:id])
-    menu_item.destroy!
-    redirect_to(menus_path, notice: "#{menu_item.name} menu item is deleted!")
+    @menu_item = MenuItem.find(params[:id])
+    @menu_item.destroy!
+    respond_to do |format|
+      format.html { redirect_to(menus_path, notice: "#{@menu_item.name} menu item is deleted!") }
+      format.js
+    end
   end
 
   def edit
