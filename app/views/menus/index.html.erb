@@ -8,21 +8,28 @@
     </h3>
   </div>
 <% end %>
+<!-- menu and menu items -->
 <div class="menu-menuItems">
   <%= render partial: "menuList",locals: { menus: @menus} %>
-  <%= render partial: "menu_items/menuItems-list", locals: { menus: @menus, order: @order } %>
+  <div class="cafeteria-menuItems">
+    <% @menus.each do |menu| %>
+      <ul class="menuItems-list" id=<%= "menuList-#{menu.id}" %>>
+        <h3 class="menuName" id=<%= menu.id %>>
+          <%= menu.name.titlecase %>
+        </h3>
+        <% menu.menu_items.order(:name).each do |menu_item| %>
+          <li class="menuItem" id=<%= "item-#{menu_item.id}" %>>
+            <%= render partial: "menu_items/menuItems-list",
+                       locals: { menu_item: menu_item } %>
+            <p class="orderItem-add" id=<%= "additem-#{menu_item.id}" %>>
+              <%= render partial: "menu_items/addItem",
+                       locals: { menu_item: menu_item, order: @order } %>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 </div>
-<div class="menuButton">
-  <%= image_tag "plate.png" %>
-  Menus
-</div>
-<% if @order %>
-  <% if @order.order_items.any? %>
-    <div class="cart-bottom">
-      <span class="cart-bottom-items"> <%= @order.order_items.count %> item(s)</span>
-      <span class="cart-bottom-price"> ₹<%= @order.total_price %></span>
-      <span class="cart-bottom-button"> <%= link_to "View Cart", cart_path %>
-      </span>
-    </div>
-  <% end %>
-<% end %>
+<!-- for mobile view -->
+<%= render partial: "mobileMenuList", locals: { order: @order } %>

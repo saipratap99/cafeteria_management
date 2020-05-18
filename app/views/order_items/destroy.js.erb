@@ -1,0 +1,7 @@
+$("#additem-<%= @order_item.menu_item.id %>").html("<%= j (render partial: 'menu_items/addItem',
+                                                                  locals: { menu_item: @order_item.menu_item ,
+                                                                            order: @order_item.order }) %>").hide().fadeIn(300);
+$(".all-messages").html("<%= j (render partial: 'home/messages',
+                                       locals: {alert: "#{@order_item.menu_item_name} is removed from cart!" }) %>")
+$(".mobileMenuList").html("<%= j (render partial: 'menus/mobileMenuList',
+                                         locals: { order: @order_item.order }) %>")

@@ -1,0 +1,23 @@
+<% if order %>
+  <% if order.order_items.get_order_item(menu_item.id).exists? %>
+    <%= link_to "-",
+                  order_item_path(id: order.order_item(menu_item.name).id),
+                  {:method => :delete, remote: true}
+      %>
+    <%= order.order_items.get_order_item(menu_item.id).count %>
+    <%= link_to "+",
+                  order_items_path(menu_item_id: menu_item.id ),
+                  {:method => :post, remote: true}
+      %>
+  <% else %>
+    <%=link_to "Add +",
+                 order_items_path(menu_item_id: menu_item.id ),
+                 {:method => :post, remote: true}
+      %>
+  <% end %>
+<% else %>
+  <%= link_to "Add +",
+                order_items_path(menu_item_id: menu_item.id ),
+                {:method => :post, remote: true}
+    %>
+<% end %>
