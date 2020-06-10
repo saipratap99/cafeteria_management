@@ -51,6 +51,8 @@ class Order < ApplicationRecord
       all.where("date >= ? and date <= ?", from_date, to_date)
     elsif (user_id.present?)
       all.where("user_id = ?", user_id)
+    else
+      all
     end
   end
 end

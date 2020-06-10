@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   # created by cmd
   # rails generate controller Orders
-  before_action :ensure_owner_logged_in, only: [:all_orders]
+  before_action :ensure_owner_logged_in, only: [:all_orders, :reports]
   before_action :ensure_owner_or_clerk_logged_in, only: [:pending_orders, :update]
 
   def index
@@ -60,7 +60,10 @@ class OrdersController < ApplicationController
   end
 
   def reports
-    @all_orders = Order.get_reports(params[:user_id], params[:from_date], params[:to_date])
+    @found = User.where("id = ?", params[:user_id]).exists?
+    @all_orders = Order.get_reports(params[:user_id],
+                                    params[:from_date],
+                                    params[:to_date]).order(id: :desc)
     respond_to do |format|
       format.js
     end

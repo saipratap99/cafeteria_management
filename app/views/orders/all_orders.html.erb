@@ -9,11 +9,15 @@
     <div class="sales-reports">
       <%= form_with(url: reports_path,method: :post) do |form|%>
         <%= form.number_field :user_id,
-                             placeholder: "User ID"%>
+                             placeholder: "User ID",
+                             min: 1%>
         <%= form.date_field :from_date,
-                            placeholder: "From date" %>
+                            placeholder: "From date",
+                            min: Date.parse("30-06-2019"),
+                            max: Date.today %>
         <%= form.date_field :to_date,
-                            placeholder: "To date" %>
+                            placeholder: "To date",
+                            max: Date.today %>
         <%= form.submit "Submit" %>
       <%end%>
     </div>
