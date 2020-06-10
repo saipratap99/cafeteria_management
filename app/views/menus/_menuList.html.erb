@@ -15,6 +15,9 @@
                         remote: true do%>
               <%= image_tag "trash.png" %>
             <% end %>
+            <%= link_to edit_menu_path(menu.id) do%>
+              <%= image_tag "edit-26.png" %>
+            <% end %>
           </span>
         <% end %>
         <a class=<%= menu.id %> id="menuName"><%= menu.name.titlecase %></a>

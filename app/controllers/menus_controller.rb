@@ -15,6 +15,22 @@ class MenusController < ApplicationController
   def show
   end
 
+  def edit
+    @menu = Menu.find(params[:id])
+  end
+
+  def update
+    menu = Menu.find(params[:id])
+    menu.update(name: params[:name].capitalize,
+                active: params[:active])
+    if menu.save
+      redirect_to(menus_path, notice: "#{menu.name} menu updated successfully!")
+    else
+      flash[:error] = menu.errors.full_messages
+      redirect_to edit_menu_path
+    end
+  end
+
   def destroy
     @menu = Menu.find(params[:id])
     @menu.destroy!

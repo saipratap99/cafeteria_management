@@ -1,0 +1,19 @@
+<main class="signUpBox">
+  <p class="signUp-login">
+    Edit menu
+  </p>
+  <%= form_with url: menu_path, method: :patch, class: "signUp-form" do |form| %>
+    <%= label_tag(:active,"Active") %>
+    <%= form.check_box :active,
+                        checked: @menu.active
+    %>
+    <br>
+    <%= form.text_field :name,
+                        placeholder: "Menu Name",
+                        value: @menu.name,
+                        autofocus:"autofocus"
+    %>
+    <br>
+    <%= form.submit "Update", data: { "disable-with": "Updating..." }, class: "signUp-button"%>
+  <%end%>
+</main>
