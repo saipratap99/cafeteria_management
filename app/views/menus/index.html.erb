@@ -10,14 +10,14 @@
 <% end %>
 <!-- menu and menu items -->
 <div class="menu-menuItems">
-  <%= render partial: "menuList",locals: { menus: @menus} %>
+  <%= render partial: "menuList",locals: { menus: @menus.active, blur: false } %>
   <div class="cafeteria-menuItems">
-    <% @menus.each do |menu| %>
+    <% @menus.active.each do |menu| %>
       <ul class="menuItems-list" id=<%= "menuList-#{menu.id}" %>>
         <h3 class="menuName" id=<%= menu.id %>>
           <%= menu.name.titlecase %>
         </h3>
-        <% menu.menu_items.order(:name).each do |menu_item| %>
+        <% menu.menu_items.active.order(:name).each do |menu_item| %>
           <li class="menuItem" id=<%= "item-#{menu_item.id}" %>>
             <%= render partial: "menu_items/menuItems-list",
                        locals: { menu_item: menu_item } %>

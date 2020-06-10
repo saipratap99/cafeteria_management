@@ -1,0 +1,26 @@
+<!-- menu and menu items -->
+<div class="menu-menuItems">
+  <%= render partial: "menuList",locals: { menus: @menus, blur: true} %>
+  <div class="cafeteria-menuItems">
+    <% @menus.each do |menu| %>
+      <ul class="menuItems-list" id=<%= "menuList-#{menu.id}" %>>
+        <h3 class="menuName" id=<%= menu.id %>>
+          <%= menu.name.titlecase %>
+        </h3>
+        <% menu.menu_items.order(:name).each do |menu_item| %>
+          <li class="menuItem"
+              id=<%= "item-#{menu_item.id}" %>
+              <% unless menu_item.active %>
+                style="opacity:0.55"
+              <%end%>
+          >
+            <%= render partial: "menu_items/menuItems-list",
+                       locals: { menu_item: menu_item } %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>
+<!-- for mobile view -->
+<%= render partial: "mobileMenuList", locals: { order: @order } %>

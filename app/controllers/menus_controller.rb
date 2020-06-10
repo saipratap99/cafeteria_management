@@ -1,11 +1,15 @@
 class MenusController < ApplicationController
   # created by cmd
   # rails generate controller Menus
-  before_action :ensure_owner_logged_in, only: [:destroy]
+  before_action :ensure_owner_logged_in, only: [:destroy, :all]
 
   def index
     @menus = Menu.order(:name)
     @order = current_user.orders.being_created
+  end
+
+  def all
+    @menus = Menu.order(:name)
   end
 
   def show
