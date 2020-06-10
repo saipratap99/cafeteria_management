@@ -60,7 +60,7 @@ class OrdersController < ApplicationController
   end
 
   def reports
-    @found = User.where("id = ?", params[:user_id]).exists?
+    @found = params[:user_id].present? ? User.where("id = ?", params[:user_id].to_i).exists? : true
     @all_orders = Order.get_reports(params[:user_id],
                                     params[:from_date],
                                     params[:to_date]).order(id: :desc)
