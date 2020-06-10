@@ -1,25 +1,26 @@
-<% orders.each do |order| %>
-  <div class="each-order" id="<%= order.id %>">
-    <p>
-      <span>Order Id:
-        <%= order.id %>
-      </span>
-      <span class="total-price">Rs.<%= order.total_price %></span>
-    </p>
-    <p class="ordered_at">
-      <% if order.user.is_clerk? || order.user.is_owner? %>
-        <%= image_tag "walk-in1.png" %>
-        <%= "Walk In Customer" %>
-      <% else %>
-        <%= order.user.name.titlecase %>
-      <% end %>
-      <% if order.date %>
-        <%= formated_time(order.date) %>
-      <% end %>
-    </p>
-    <p class="rating-and-status">
-      <%= render partial: "rating", locals: {order: order, mark_as_delivered: mark_as_delivered } %>
-      <p class="each-order-status"
+<div class="all-orders">
+  <% orders.each do |order| %>
+    <div class="each-order" id="<%= order.id %>">
+      <p>
+        <span>Order Id:
+          <%= order.id %>
+        </span>
+        <span class="total-price">Rs.<%= order.total_price %></span>
+      </p>
+      <p class="ordered_at">
+        <% if order.user.is_clerk? || order.user.is_owner? %>
+          <%= image_tag "walk-in1.png" %>
+          <%= "Walk In Customer" %>
+        <% else %>
+          <%= order.user.name.titlecase %>
+        <% end %>
+        <% if order.date %>
+          <%= formated_time(order.date) %>
+        <% end %>
+      </p>
+      <p class="rating-and-status">
+        <%= render partial: "rating", locals: {order: order, mark_as_delivered: mark_as_delivered } %>
+        <p class="each-order-status"
             <% if order.delivered_at %>
               style="color:#11b911;font-weight:bold"
             <% elsif order.date %>
@@ -27,23 +28,24 @@
             <% else %>
               style="color:rgba(159, 49, 250, 0.932);font-weight:bold"
             <% end %>
-  >
-        <%= order.order_status %>
+        >
+          <%= order.order_status %>
+        </p>
       </p>
-    </p>
-    <section class="order-details" id="order-details">
-      <ul>
-        <% order.all_menu_item_names.uniq.each do |menu_item| %>
-          <li class="order-item" >
-            <span>
-              <%= menu_item + " x"+order.all_menu_item_names.count(menu_item).to_s %>
-            </span >
-            <span class="total-price">
-              Rs.<%= order.order_items.get_menu_item_price(menu_item)*order.all_menu_item_names.count(menu_item) %>
-            </span>
-          </li>
-        <% end %>
-      </ul>
-    </section>
-  </div>
-<% end %>
+      <section class="order-details" id="order-details">
+        <ul>
+          <% order.all_menu_item_names.uniq.each do |menu_item| %>
+            <li class="order-item" >
+              <span>
+                <%= menu_item + " x"+order.all_menu_item_names.count(menu_item).to_s %>
+              </span >
+              <span class="total-price">
+                Rs.<%= order.order_items.get_menu_item_price(menu_item)*order.all_menu_item_names.count(menu_item) %>
+              </span>
+            </li>
+          <% end %>
+        </ul>
+      </section>
+    </div>
+  <% end %>
+</div>

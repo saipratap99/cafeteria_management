@@ -6,6 +6,17 @@
         <%= form.submit "Search order" %>
       <% end %>
     </div>
+    <div class="sales-reports">
+      <%= form_with(url: reports_path,method: :post) do |form|%>
+        <%= form.number_field :user_id,
+                             placeholder: "User ID"%>
+        <%= form.date_field :from_date,
+                            placeholder: "From date" %>
+        <%= form.date_field :to_date,
+                            placeholder: "To date" %>
+        <%= form.submit "Submit" %>
+      <%end%>
+    </div>
   <% end %>
   <h3 class="orders-heading">All Orders</h3>
   <%= render partial:"ordersList", locals: {orders: @all_orders.delivered_and_confirmed, mark_as_delivered: false } %>

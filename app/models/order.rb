@@ -43,4 +43,14 @@ class Order < ApplicationRecord
   def self.get_order_by_id(id)
     order = all.where("id = ?", id).exists? ? find(id) : false
   end
+
+  def self.get_reports(user_id, from_date, to_date)
+    if (user_id.present? && from_date.present? && to_date.present?)
+      all.where("user_id = ? and date >= ? and date <= ?", user_id, from_date, to_date)
+    elsif (from_date.present? && to_date.present?)
+      all.where("date >= ? and date <= ?", from_date, to_date)
+    elsif (user_id.present?)
+      all.where("user_id = ?", user_id)
+    end
+  end
 end

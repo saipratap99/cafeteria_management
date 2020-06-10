@@ -58,4 +58,11 @@ class OrdersController < ApplicationController
       format.js
     end
   end
+
+  def reports
+    @all_orders = Order.get_reports(params[:user_id], params[:from_date], params[:to_date])
+    respond_to do |format|
+      format.js
+    end
+  end
 end
