@@ -46,7 +46,8 @@ class MenuItemsController < ApplicationController
     menu_item.update(name: params[:name].capitalize,
                      description: params[:description].capitalize,
                      menu_id: menu.id,
-                     price: params[:price])
+                     price: params[:price],
+                     active: params[:active])
     if menu.save && menu_item.save
       redirect_to(menus_path, notice: "#{menu_item.name} item updated successfully!")
     else
