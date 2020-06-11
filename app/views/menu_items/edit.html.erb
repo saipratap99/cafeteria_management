@@ -3,11 +3,12 @@
     Edit item
   </p>
   <%= form_with url: menu_item_path, method: :patch, class: "signUp-form" do |form| %>
-    <%= label_tag(:active,"Active") %>
-    <%= form.check_box :active,
+    <p class="Active">
+      <%= label_tag(:active,"Active") %>
+      <%= form.check_box :active,
                         checked: @menu_item.active
-    %>
-    <br>
+      %>
+    </p>
     <%= form.text_field :name,
                         placeholder: "Item Name",
                         value: @menu_item.name,

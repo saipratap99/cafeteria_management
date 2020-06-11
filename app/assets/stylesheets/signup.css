@@ -1,8 +1,9 @@
-.main-sigbUpBody{
-  font-family:  sans-serif;
+.main-sigbUpBody {
+  font-family: sans-serif;
 }
 
-.signUpBox,.updateUser-box{
+.signUpBox,
+.updateUser-box {
   max-width: 500px;
   margin: 20px auto;
   border: 3px solid transparent;
@@ -10,35 +11,38 @@
   box-shadow: 2px 2px 20px rgb(14, 17, 24);
 }
 
-.signUp-login{
-  margin: 25px 0;
+.signUp-login {
+  margin-top: 25px;
   text-align: center;
-  font-size: 20px;
+  font-size: 25px;
   padding: 5px;
 }
 
-.login-link{
+.login-link {
   text-decoration: none;
   color: rgb(199, 26, 26);
 }
 
-.signUp-form input[type="text"] ,input[type="password"],.edit-item-price ,#user_name,.menu-dropdown-edit > select{
+.signUp-form input[type="text"],
+input[type="password"],
+.edit-item-price,
+#user_name,
+.menu-dropdown-edit > select {
   display: block;
-  margin : 5px auto;
+  margin: 5px auto;
   width: 400px;
   font-size: 25px;
   padding: 5px;
   text-align: center;
   border: 2px solid rgb(65, 113, 216);
   border-radius: 10px;
-
 }
 
-.signUp-button:hover{
-  background-color: rgba(37, 168, 37, 0.829) ;
+.signUp-button:hover {
+  background-color: rgba(37, 168, 37, 0.829);
 }
 
-.signUp-button{
+.signUp-button {
   text-decoration: none;
   display: block;
   margin: 10px auto;
@@ -52,5 +56,4 @@
   border-radius: 10px;
   font-size: 20px;
   padding: 5px;
-
 }

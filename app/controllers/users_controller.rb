@@ -27,7 +27,8 @@ class UsersController < ApplicationController
       session[:current_user_id] = user.id
       redirect_to(menus_path, notice: "Welcome #{user.name}!")
     else
-      redirect_to(new_user_path, error: user.errors.full_messages)
+      flash[:error] = user.errors.full_messages
+      redirect_to new_user_path
     end
   end
 
