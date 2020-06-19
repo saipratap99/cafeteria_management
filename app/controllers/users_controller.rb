@@ -22,12 +22,12 @@ class UsersController < ApplicationController
                     role: "customer",
                     password: password,
                     password_confirmation: password_confirmation)
-    if user.save
+    if user.save && password.length > 4
       OrderMailer.with(user: user).welcome_user.deliver_now
       session[:current_user_id] = user.id
       redirect_to(menus_path, notice: "Welcome #{user.name}!")
     else
-      flash[:error] = user.errors.full_messages
+      flash[:error] = user.errors.full_messages + password(password)
       redirect_to new_user_path
     end
   end

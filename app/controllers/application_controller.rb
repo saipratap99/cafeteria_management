@@ -35,4 +35,12 @@ class ApplicationController < ActionController::Base
       nil
     end
   end
+
+  def password(password)
+    if password.length > 3
+      []
+    else
+      ["Password must be atleat 4 charecters!"]
+    end
+  end
 end
