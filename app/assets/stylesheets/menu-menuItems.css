@@ -1,40 +1,40 @@
-.walk-in-header{
+.walk-in-header {
   max-width: 70%;
   margin: 5px auto;
 }
-.walk-in-header > h3{
+.walk-in-header > h3 {
   text-align: center;
   color: rgba(94, 121, 185, 0.91);
 }
-.menu-menuItems{
+.menu-menuItems {
   max-width: 70%;
   margin: 0 auto;
   display: flex;
   font-family: sans-serif;
 }
-.cafeteria-menu{
+.cafeteria-menu {
   width: 25%;
   margin: 5px;
   border-right: 2px dotted rgba(197, 194, 194, 0.966);
 }
-.menuName{
+.menuName {
   margin: 5px;
   padding: 5px;
   font-weight: bold;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: rgba(0, 0, 0, 0.849);
 }
-h3.menuName:target{
+h3.menuName:target {
   animation: menuHighlight 15s 1;
 }
-.menu{
+.menu {
   margin: 5px;
   padding: 5px;
   text-align: right;
   display: flex;
   align-items: center;
 }
-.menu > a{
+.menu > a {
   color: #0509c4;
   margin-left: auto;
   padding: 2px 8px;
@@ -49,82 +49,83 @@ h3.menuName:target{
   align-items: center;
   font-family: sans-serif;
 }
-.cafeteria-menuItems{
+.cafeteria-menuItems {
   width: 75%;
   margin: 0 auto;
 }
-.menuItems-list{
+.menuItems-list {
   border-bottom: 3px solid black;
 }
-.menuItem > p{
+.menuItem > p {
   padding: 5px;
 }
-.menuItem:hover{
-  background-color: #E7E9EE;
+.menuItem:hover {
+  background-color: #e7e9ee;
   border-radius: 10px;
 }
 
- .orderItem-updateItem{
-   margin-left: auto;
-   margin-right: 15px;
-  }
+.orderItem-updateItem {
+  margin-left: auto;
+  margin-right: 15px;
+}
 
-  .orderItem-add{
-   border: 1px solid #a13cf9;
-   border-radius: 5px;
-   color: #a13cf9;
-   padding: 8px;
-  }
+.orderItem-add {
+  border: 1px solid #a13cf9;
+  border-radius: 5px;
+  color: #a13cf9;
+  padding: 8px;
+}
 
- .menuItem-details{
-   display: block;
-   padding: 2px;
-   margin: 5px;
-   font-size: 18px;
- }
- .menuItem-price{
-   max-width: 35px;
-   color: #535665;
- }
- .orderItem-add > a{
+.menuItem-details {
+  display: block;
+  padding: 2px;
+  margin: 5px;
+  font-size: 18px;
+}
+.menuItem-price {
+  max-width: 35px;
+  color: #535665;
+}
+.orderItem-add > a {
   color: #a13cf9;
   width: 20px;
   padding: 5px;
- }
+}
 
- .menuItem-delete{
-   display: none;
-   margin-left: 10px;
- }
-.menu:hover > .menuItem-delete{
+.menuItem-delete {
+  display: none;
+  margin-left: 10px;
+}
+.menu:hover > .menuItem-delete {
   display: inline-block;
 }
-.each-menuItem-delete{
+.each-menuItem-delete {
   display: none;
   margin-left: auto;
 }
-.each-menuItem-delete > a img{
+.each-menuItem-delete > a img {
   margin-left: auto;
   padding: 8px;
 }
-.menuItem:hover > .each-menuItem-delete{
+.menuItem:hover > .each-menuItem-delete {
   display: inline-block;
 }
-.menuItem-description{
+.menuItem-description {
   font-size: 15px;
-  margin-left:25px;
+  margin-left: 25px;
   padding: 5px;
-  color:#7e808c;
+  color: #7e808c;
   border-left: 1px dotted black;
 }
-.item-rating{
+.item-rating {
   padding: 3px;
   margin-left: 5px;
 }
-.menus-dropdown{
+.menus-dropdown {
   padding: 8px;
 }
-.menus-dropdown > select,.menus-dropdown-edit  > select{
+.menus-dropdown > select,
+.menus-dropdown-edit > select {
   border: 0px;
   background-color: white;
   font-size: 21px;
@@ -132,7 +133,7 @@ h3.menuName:target{
   padding: 5px;
   width: 310px;
 }
-.menus-dropdown-edit  > select{
+.menus-dropdown-edit > select {
   border: 2px solid rgb(65, 113, 216);
   border-radius: 10px;
   width: 400px;
@@ -142,13 +143,13 @@ h3.menuName:target{
   margin: 5px auto;
 }
 
-.signUp-form #new_menu_name{
+.signUp-form #new_menu_name {
   display: none;
 }
-.add-menu-input{
+.add-menu-input {
   display: none;
 }
-.cart-bottom{
+.cart-bottom {
   display: none;
   background-color: rgb(49, 197, 49);
   color: white;
@@ -156,27 +157,36 @@ h3.menuName:target{
   padding: 5px;
   width: 100%;
 }
-.cart-bottom-button > a{
+.cart-bottom-button > a {
   color: white;
   padding: 5px;
   margin-right: 8px;
   font-size: 18px;
   font-weight: bold;
 }
-.cart-bottom-price{
+.cart-bottom-price {
   border-left: 2px solid white;
   padding-left: 8px;
   font-size: 18px;
   font-weight: bold;
 }
-.cart-bottom-items{
+.cart-bottom-items {
   margin-right: 8px;
   font-size: 18px;
   font-weight: bold;
 }
 
-@keyframes menuHighlight{
-  0%{background-color: #a13cf9;color: white;}
-  99%{background-color: #a13cf9;color: white;}
-  100%{background-color: white;color: black;}
+@keyframes menuHighlight {
+  0% {
+    background-color: #a13cf9;
+    color: white;
+  }
+  99% {
+    background-color: #a13cf9;
+    color: white;
+  }
+  100% {
+    background-color: white;
+    color: black;
+  }
 }

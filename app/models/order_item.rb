@@ -18,8 +18,8 @@ class OrderItem < ApplicationRecord
       if MenuItem.where("id = ?", id).exists?
         menu_item = MenuItem.find(id)
         menu_item.no_of_ratings = menu_item.no_of_ratings + 1
-        menu_item.save!
-        menu_item.ratings = (menu_item.ratings.to_f + rating.to_i) / (menu_item.no_of_ratings)
+        n_ratings = menu_item.no_of_ratings
+        menu_item.ratings = ((n_ratings - 1) * menu_item.ratings.to_f + rating.to_f) / (n_ratings)
         menu_item.save!
       else
       end

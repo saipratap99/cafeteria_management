@@ -54,7 +54,7 @@ class OrdersController < ApplicationController
     @order.save!
     @order.order_items.rate_menu_items(params[:rating])
     respond_to do |format|
-      format.html { redirect_to(orders_path, notice: "Thank you for rating order with id:#{@order.id}") }
+      format.html { redirect_to(orders_path, notice: "Thank you for rating the order id:#{@order.id}") }
       format.js
     end
   end

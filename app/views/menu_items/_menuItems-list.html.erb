@@ -9,6 +9,9 @@
     <% (5-menu_item.ratings.to_i).times do %>
       <%= image_tag "star-16.png" %>
     <% end %>
+    <span class="n-ratings">
+      <%= menu_item.no_of_ratings %>
+    </span>
   </span>
   <span class="menuItem-details">
     <span class="menuItem-price">
