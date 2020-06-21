@@ -17,15 +17,15 @@
                 <p class="cartItem-add">
                   <%= link_to "-",
                             order_item_path(id: @order.order_item(menu_item_name).id, cart: 1),
-                            {:method => :delete}
-                %>
+                            {:method => :delete} %>
                   <%= @order.all_menu_item_names.count(menu_item_name) %>
                   <%= link_to "+",
-                            order_items_path(menu_item_id: @order.order_item(menu_item_name).menu_item_id, cart: 1),
-                            {:method => :post} %>
+                              order_items_path(menu_item_id: @order.order_item(menu_item_name).menu_item_id, cart: 1),
+                              {:method => :post} %>
                 </p>
                 <p class="qty-price">
-                  Rs.<%= @order.order_items.get_menu_item_price(menu_item_name)*@order.all_menu_item_names.count(menu_item_name) %>
+                  Rs.<%= @order.order_items.get_menu_item_price(menu_item_name)*
+                         @order.all_menu_item_names.count(menu_item_name) %>
                 </p>
               </span>
             </li>

@@ -1,4 +1,6 @@
 <div class="orders">
   <h3 class="orders-heading">Your Orders</h3>
-  <%= render partial:"ordersList", locals: {orders: @current_user.orders.order(id: :desc).delivered_and_confirmed, mark_as_delivered: false } %>
+  <%= render partial:"ordersList",
+             locals: { orders: @current_user.orders.order(id: :desc).delivered_and_confirmed,
+                       mark_as_delivered: false } %>
 </div>

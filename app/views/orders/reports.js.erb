@@ -4,7 +4,7 @@ $(".all-orders").html("<%= j (render partial: 'ordersList',
                                        mark_as_delivered: false }) %>").hide().fadeIn(800);
 <% if @found %>
   $(".all-messages").html("<%= j (render partial: 'home/messages',
-                                         locals: {notice: "#{@all_orders.delivered_and_confirmed.count} Orders" })
+                                         locals: {notice: pluralize(@all_orders.delivered_and_confirmed.count, "Order")})
                             %>").hide().fadeIn(800);
 <% else %>
   $(".all-messages").html("<%= j (render partial: 'home/messages',

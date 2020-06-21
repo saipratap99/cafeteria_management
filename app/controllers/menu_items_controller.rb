@@ -25,7 +25,6 @@ class MenuItemsController < ApplicationController
   end
 
   def destroy
-    ensure_owner_logged_in
     @menu_item = MenuItem.find(params[:id])
     @menu_item.destroy!
     respond_to do |format|
@@ -35,7 +34,6 @@ class MenuItemsController < ApplicationController
   end
 
   def edit
-    ensure_owner_logged_in
     @menu_item = MenuItem.find(params[:id])
   end
 
