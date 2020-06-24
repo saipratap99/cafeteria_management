@@ -115,20 +115,25 @@ body {
 .user-content {
   display: none;
   width: 200px;
-  top: 45px;
-  right: 10px;
+  right: 1px;
   background-color: white;
   position: absolute;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   margin: 5px auto;
+  border-radius: 5px;
 }
-.user-content > p {
+.user-content ul li {
   padding: 8px;
+  padding-right: 15px;
+}
+.user-content ul li a {
+  color: rgba(24, 23, 23, 0.842);
+  padding-right: 15px;
 }
 .dropdown:hover > .user-content {
   display: block;
 }
-.user-content > p a:hover {
+.user-content ul li a:hover {
   color: rgba(255, 68, 0, 0.904);
 }
 .name-icon {

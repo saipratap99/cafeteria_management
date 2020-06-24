@@ -36,18 +36,20 @@
       <li class="cafeteria-navbarButton dropdown">
         <span class="name-icon"><%= @current_user.name[0] %></span><%= @current_user.name %>
         <div class="user-content">
-          <p>
-            <%= image_tag "orders.png" %>
-            <%= link_to "My Orders", orders_path %>
-          </p>
-          <p>
-            <%= image_tag "edit-26.png" %>
-            <%= link_to "Edit Profile", edit_user_path(id: @current_user.id) %>
-          </p>
-          <p>
-            <%= image_tag "logout.png" %>
-            <%= link_to "LogOut", destroy_session_path, method: :delete %>
-          </p>
+          <ul>
+            <li>
+              <%= image_tag "orders.png" %>
+              <%= link_to "My Orders", orders_path %>
+            </li>
+            <li>
+              <%= image_tag "edit-26.png" %>
+              <%= link_to "Edit Profile", edit_user_path(id: @current_user.id) %>
+            </li>
+            <li>
+              <%= image_tag "logout.png" %>
+              <%= link_to "LogOut", destroy_session_path, method: :delete %>
+            </li>
+          </ul>
         </div>
       </li>
       <li class="cafeteria-navbarButton mobile">

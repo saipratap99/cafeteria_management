@@ -15,9 +15,9 @@
         <% menu.menu_items.order(:name).each do |menu_item| %>
           <li class="menuItem"
               id=<%= "item-#{menu_item.id}" %>
-              <% unless menu_item.active %>
+              <% unless menu_item.active && menu_item.menu.active %>
                 style="opacity:0.55"
-              <%end%>
+              <% end %>
           >
             <%= render partial: "menu_items/menuItems-list",
                        locals: { menu_item: menu_item } %>
