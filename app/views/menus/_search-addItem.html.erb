@@ -1,11 +1,13 @@
 <% content_for :head do %>
-  <div class="search-box">
-    <form>
-      <input type="search" placeholder="Search for item">
-      <input type="submit" value="Seach Item">
-    </form>
+  <!--
+  <div class="all-menus-link">
+    <%= link_to "All menus", all_menus_path %>
   </div>
+  -->
   <% if @current_user.is_owner? %>
+    <div class="all-menus-link">
+      <%= link_to "All menus", all_menus_path %>
+    </div>
     <div class="addItem-form" id="addItem-form">
       <%= form_with(model: @menu, url: menu_items_url, method: "post", local: true) do |form|%>
         <p class="menus-dropdown">
