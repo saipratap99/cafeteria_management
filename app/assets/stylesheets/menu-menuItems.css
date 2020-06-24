@@ -56,6 +56,10 @@ h3.menuName:target {
 .menuItems-list {
   border-bottom: 3px solid black;
 }
+.menuItems-list:last-child {
+  border-bottom: none;
+  margin-bottom: 50px;
+}
 .menuItem > p {
   padding: 5px;
 }
@@ -174,6 +178,9 @@ h3.menuName:target {
   margin-right: 8px;
   font-size: 18px;
   font-weight: bold;
+}
+.menuButton {
+  display: none;
 }
 
 @keyframes menuHighlight {
