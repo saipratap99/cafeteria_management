@@ -1,4 +1,4 @@
 $("#menu-<%= @menu.id %>").hide(500);
 $("#menuList-<%= @menu.id %>").hide(500);
 $(".all-messages").html("<%= j (render partial: 'home/messages',
-                                       locals: {notice: "#{@menu.name} menu is deleted successfully!" }) %>")
+                                       locals: {notice: "#{@menu.name} menu is deleted successfully!" }) %>").hide().fadeIn(800);

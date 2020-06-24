@@ -2,6 +2,6 @@ $("#additem-<%= @menu_item.id %>").html("<%= j (render partial: 'menu_items/addI
                                                        locals: { menu_item: @menu_item ,
                                                                  order: @order }) %>").hide().fadeIn(300);
 $(".all-messages").html("<%= j (render partial: 'home/messages',
-                                       locals: {notice: "#{@order_item.menu_item_name} is added to cart!" }) %>")
+                                       locals: {notice: "#{@order_item.menu_item_name} is added to cart!" }) %>").hide().fadeIn(800);
 $(".mobileMenuList").html("<%= j (render partial: 'menus/mobileMenuList',
                                          locals: { order: @order }) %>")
