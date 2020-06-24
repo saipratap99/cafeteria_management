@@ -33,4 +33,8 @@ class User < ApplicationRecord
     end
     save!
   end
+
+  def self.owners
+    all.where("role = ? ", "owner")
+  end
 end

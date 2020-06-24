@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def index
     @clerks = User.clerks.order(:id)
     @customers = User.customers.order(:id)
+    @owners = User.owners
   end
 
   def create

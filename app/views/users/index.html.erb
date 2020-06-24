@@ -9,9 +9,9 @@
   <% end %>
   <section>
     <table class="all-clerks">
-      <%= render partial: "user-details", locals: {roles: nil, owner: @current_user, heading: "Owner"} %>
-      <%= render partial: "user-details", locals: {roles: @clerks, owner: nil, heading: "Clerks"} %>
-      <%= render partial: "user-details", locals: {roles: @customers, owner: nil, heading: "Customers"} %>
+      <%= render partial: "user-details", locals: {roles: nil, owners: @owners, heading: "Owner"} %>
+      <%= render partial: "user-details", locals: {roles: @clerks, owners: nil, heading: "Clerks"} %>
+      <%= render partial: "user-details", locals: {roles: @customers, owners: nil, heading: "Customers"} %>
     </table>
   </section>
 </main>
