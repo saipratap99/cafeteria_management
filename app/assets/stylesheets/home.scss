@@ -2,17 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-body{
+body {
   font-family: sans-serif;
 }
 
-.cafeteria-navbar{
+.cafeteria-navbar {
   display: flex;
   align-items: center;
   max-width: 100%;
   margin: 0 auto;
 }
-.cafeteria-navbarHeading{
+.cafeteria-navbarHeading {
   margin: 5px;
   padding: 5px;
   color: rgba(34, 33, 33, 0.877);
@@ -21,22 +21,23 @@ body{
   display: flex;
   align-items: center;
 }
-.cafeteria-navbarHeading img{
+.cafeteria-navbarHeading img {
   padding: 5px;
 }
-.cafeteria-navbarAllButtons{
+.cafeteria-navbarAllButtons {
   display: flex;
   align-items: center;
-  margin-left:auto ;
+  margin-left: auto;
 }
-.cafeteria-navbarButton{
+.cafeteria-navbarButton {
   display: flex;
   align-items: center;
   list-style: none;
   margin: 5px;
   padding: 5px;
 }
-.cafeteria-navbarButton > a,.user-content > p a{
+.cafeteria-navbarButton > a,
+.user-content > p a {
   text-decoration: none;
   color: rgba(24, 23, 23, 0.842);
   font-family: sans-serif;
@@ -44,10 +45,12 @@ body{
   text-align: center;
   padding: 5px;
 }
-.cafeteria-navbarButton > a:hover{
+.cafeteria-navbarButton > a:hover {
   color: rgba(255, 68, 0, 0.904);
 }
-.notice , .alert,#error_explanation{
+.notice,
+.alert,
+#error_explanation {
   font-family: sans-serif;
   max-width: 50%;
   margin: 0 auto;
@@ -60,69 +63,75 @@ body{
   color: darkgreen;
   font-size: 20px;
 }
-.alert,#error_explanation{
+.alert,
+#error_explanation {
   background-color: rgba(252, 155, 138, 0.753);
   border: 2px solid darkred;
   color: darkred;
 }
 
-#error_explanation h2{
+#error_explanation h2 {
   font-size: 21px;
   font-weight: bold;
 }
-.error-message{
+.error-message {
   text-align: left;
 }
-.home-main-gif{
-  width:50%;
+.home-main-gif {
+  width: 50%;
   margin: 5px auto;
+  text-align: center;
 }
-.home-main{
+.home-main-gif img {
+  max-height: 400px;
+  width: auto;
+}
+.home-main {
   font-family: sans-serif;
   padding: 8px;
   text-align: center;
   color: rgba(255, 68, 0, 0.904);
 }
-.order-btn{
+.order-btn {
   margin: 5px auto;
   text-align: center;
 }
-.order-btn > a{
+.order-btn > a {
   font-size: 26px;
   font-family: sans-serif;
   text-decoration: none;
   background-color: rgba(255, 68, 0, 0.904);
   color: white;
-  padding:10px;
+  padding: 10px;
   border-radius: 5px;
   border: 2px solid transparent;
 }
-.dropdown{
+.dropdown {
   font-family: sans-serif;
   position: relative;
-  display:inline-block ;
+  display: inline-block;
   cursor: pointer;
 }
-.user-content{
+.user-content {
   display: none;
   width: 200px;
   top: 45px;
   right: 10px;
   background-color: white;
   position: absolute;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   margin: 5px auto;
 }
 .user-content > p {
   padding: 8px;
 }
-.dropdown:hover  > .user-content{
+.dropdown:hover > .user-content {
   display: block;
 }
-.user-content > p a:hover{
+.user-content > p a:hover {
   color: rgba(255, 68, 0, 0.904);
 }
-.name-icon{
+.name-icon {
   display: inline-block;
   height: 23px;
   width: 25px;
@@ -134,7 +143,9 @@ body{
   margin-right: 5px;
   font-family: monospace;
 }
-.home-main-gif img:nth-child(2){display: none;}
+.home-main-gif img:nth-child(2) {
+  display: none;
+}
 
 .container {
   display: none;
@@ -142,7 +153,9 @@ body{
   margin-left: auto;
 }
 
-.bar1, .bar2, .bar3 {
+.bar1,
+.bar2,
+.bar3 {
   width: 35px;
   height: 5px;
   background-color: #333;
@@ -155,17 +168,19 @@ body{
   transform: rotate(-45deg) translate(-9px, 6px);
 }
 
-.change .bar2 {opacity: 0;}
+.change .bar2 {
+  opacity: 0;
+}
 
 .change .bar3 {
   -webkit-transform: rotate(45deg) translate(-8px, -8px);
   transform: rotate(45deg) translate(-8px, -8px);
 }
-.mobile{
+.mobile {
   display: none;
 }
 
-.sticky{
+.sticky {
   position: fixed;
   top: 0px;
 }
