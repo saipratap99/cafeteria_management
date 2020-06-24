@@ -3,7 +3,7 @@
     <%= link_to "Mark as Delivered",
                 order_path(order.id),
                 method: "patch",
-                data: { "disable-with": "Please wait..." },
+                data: { "disable-with": "Please wait...", confirm: "Are you sure?" },
                 remote: true
     %>
   <% elsif order.delivered_at.nil? %>

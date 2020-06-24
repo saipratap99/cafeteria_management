@@ -85,6 +85,9 @@
 .empty-cart-img {
   text-align: center;
 }
+.empty-cart-img > img {
+  max-height: 350px;
+}
 .addItems {
   text-align: center;
   padding: 5px;
