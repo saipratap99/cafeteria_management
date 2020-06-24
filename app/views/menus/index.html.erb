@@ -31,5 +31,10 @@
     <% end %>
   </div>
 </div>
+<div class="cart-main">
+  <%= link_to cart_path do%>
+    <%= image_tag "cart-32.png" %>
+  <% end %>
+</div>
 <!-- for mobile view -->
 <%= render partial: "mobileMenuList", locals: { order: @order } %>

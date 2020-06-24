@@ -27,3 +27,15 @@
 .all-menus-link {
   padding: 15px;
 }
+.cart-main {
+  position: fixed;
+  bottom: 50px;
+  right: 10%;
+}
+.cart-main > a {
+  background-color: rgb(49, 197, 49);
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 8px;
+  border-radius: 50%;
+}
