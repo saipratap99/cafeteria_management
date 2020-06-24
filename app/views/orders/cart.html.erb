@@ -2,7 +2,7 @@
   <h3 class="cart-heading">Cart</h3>
   <% if @order %>
     <% if @order.order_items.empty? %>
-      <h2 class="empty-cart">Uh oh! Your cart is empty</h2>
+      <%= render partial: "empty-cart" %>
     <% else %>
       <div class="cart-item-price">
         <p class="cart-item-heading" >
@@ -41,6 +41,6 @@
       </div>
     <% end %>
   <% else %>
-    <h2 class="empty-cart">Uh oh! Your cart is empty</h2>
+    <%= render partial: "empty-cart" %>
   <% end %>
 </div>

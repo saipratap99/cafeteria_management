@@ -1,9 +1,10 @@
 <% content_for :head do %>
-  <!--
-  <div class="all-menus-link">
-    <%= link_to "All menus", all_menus_path %>
+  <div class="search-box">
+    <form>
+      <input type="search" placeholder="Search for item">
+      <input type="submit" value="Seach Item">
+    </form>
   </div>
-  -->
   <% if @current_user.is_owner? %>
     <div class="all-menus-link">
       <%= link_to "All menus", all_menus_path %>
